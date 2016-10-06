@@ -1,0 +1,1 @@
+sudo /usr/local/bin/logwarn -z -m '\[.*:(debug|info|warn|error)\]' -p /var/log/openqa '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' | sed 's/^\[.*[0-9]\{4\}\] //' | sort | uniq
