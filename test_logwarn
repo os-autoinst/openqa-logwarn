@@ -1,0 +1,23 @@
+#!/bin/sh -e
+set -o pipefail
+out=$(logwarn -f /dev/null -z -m '\[.*:(debug|info|warn|error)\]' in.log '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]') || true
+
+echo "test error messages are included"
+echo $out | grep -q ':error.*Asset iso/foo.iso is not in any job group'
+echo $out | grep -q ':error.*File iso/bar.iso is not a registered asset'
+echo $out | grep -q ':error.*MISSING S:scheduled R:none'
+
+echo "test debug and info messages are not included"
+echo $out | grep -q '\[19382:info\] GRU: removing /var/lib/openqa/factory/iso/whocares.iso' && exit 2
+echo $out | grep -q '\[websockets:debug\] \[DBIx debug\] Took 0.00216508 seconds executed: UPDATE workers ...' && exit 2
+
+echo "not prefixed output is NOT included"
+echo $out | grep -q 'more output that is not properly prefixed' && exit 2
+
+echo "multi-line debug is not included"
+echo $out | grep -q '\[Thu Oct  6 01:15:54 2016\] \[27316:debug\] dispatching IPC job_grab to scheduler: \[' && exit 2
+echo $out | grep -q 'blocking   => 0,' && exit 2
+echo $out | grep -q 'cpu_modelname => undef,' && exit 2
+echo $out | grep -q '^\]$' && exit 2
+
+echo "PASSED"

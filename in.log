@@ -1,0 +1,33 @@
+[Mon Sep 26 21:16:43 2016] [19382:info] GRU: removing /var/lib/openqa/factory/iso/whocares.iso
+[Mon Sep 26 21:16:43 2016] [websockets:debug] [DBIx debug] Took 0.00216508 seconds executed: UPDATE workers ...
+[Mon Sep 26 21:16:43 2016] [19382:error] Asset iso/foo.iso is not in any job group, DELETE from assets where id=1;
+[Mon Sep 26 21:16:43 2016] [19382:error] File iso/bar.iso is not a registered asset
+[Mon Sep 26 21:16:43 2016] [websockets:debug] [DBIx debug] Took 0.00111699 seconds executed: SELECT me.id...
+[Mon Sep 26 21:16:43 2016] [websockets:debug] [DBIx debug] Took 0.00284100 seconds executed: UPDATE workers ...
+[Mon Sep 26 21:16:43 2016] [scheduler:debug] [DBIx debug] Took 0.29394507 seconds executed: SELECT me.id...
+[Mon Sep 26 21:16:43 2016] [scheduler:debug] IPC calling job_grab
+[Mon Sep 26 21:16:46 2016] [19382:error] Directory repo/baz.license is not a registered asset
+[Mon Sep 26 21:17:27 2016] [30003:error] MISSING S:scheduled R:none
+[Mon Sep 26 21:22:24 2016] [19382:info] GRU: removing /var/lib/openqa/factory/iso/waeva.iso
+more output that is not properly prefixed
+[Thu Oct  6 01:15:54 2016] [27316:debug] dispatching IPC job_grab to scheduler: [
+  {
+    blocking   => 0,
+    workercaps => {
+                    cpu_arch      => "aarch64",
+                    cpu_modelname => undef,
+                    cpu_opmode    => undef,
+                    mem_max       => 130802,
+                  },
+    workerid   => 233,
+    workerip   => "2620:113:80c0:8000:10:161:32:34",
+  },
+]
+
+[Thu Oct  6 14:16:09 2016] [27863:debug] looking for bless({
+  path => "/var/lib/openqa/testresults/00602401-sle-12-SP2-Server-DVD-x86_64-Build2160-migration_zdup_offline_sle12_ga_allpatterns\@64bit/.thumbs/reboot_gnome
+-12.png",
+}, "Mojo::Asset::File") in [
+  "/var/lib/openqa/testresults/00602401-sle-12-SP2-Server-DVD-x86_64-Build2160-migration_zdup_offline_sle12_ga_allpatterns\@64bit",
+  "/var/lib/openqa/testresults/00602401-sle-12-SP2-Server-DVD-x86_64-Build2160-migration_zdup_offline_sle12_ga_allpatterns\@64bit/ulogs",
+]
