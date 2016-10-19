@@ -31,3 +31,5 @@ more output that is not properly prefixed
   "/var/lib/openqa/testresults/00602401-sle-12-SP2-Server-DVD-x86_64-Build2160-migration_zdup_offline_sle12_ga_allpatterns\@64bit",
   "/var/lib/openqa/testresults/00602401-sle-12-SP2-Server-DVD-x86_64-Build2160-migration_zdup_offline_sle12_ga_allpatterns\@64bit/ulogs",
 ]
+[Wed Oct 19 02:10:12 2016] [4608:warn] 619442 got a status update but has no worker. huh?
+[Wed Oct 19 03:09:37 2016] [8980:warn] 619391 got an artefact but has no worker. huh?

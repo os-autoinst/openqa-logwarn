@@ -1,0 +1,14 @@
+#!/bin/sh -e
+file="${file:-"${1:-"/var/log/openqa"}"}"
+options="${options:-""}"
+logwarn="${logwarn:-$(which logwarn)}"
+$logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
+    `# ignore known warnings mentioned in https://progress.opensuse.org/issues/13952` \
+    '!got a status update but has no worker' \
+    '!got an artefact but has no worker' \
+    `# ignore broken registered assets https://progress.opensuse.org/issues/13938` \
+    '!error\] Registering asset iso/.*:' \
+    '!warn\] asset name .* invalid or does not exist' \
+    '!is not in any job group, DELETE from assets where' \
+    '!Registering asset' \
+    '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
