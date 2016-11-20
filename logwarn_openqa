@@ -11,4 +11,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!warn\] asset name .* invalid or does not exist' \
     '!is not in any job group, DELETE from assets where' \
     '!Registering asset' \
+    `# https://progress.opensuse.org/issues/14904` \
+    '!Can*t call method .*DISTRI.* on an undefined value' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
