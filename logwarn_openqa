@@ -15,4 +15,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!Can.*t call method .*DISTRI.* on an undefined value' \
     `# https://progress.opensuse.org/issues/14906` \
     '!Can.*t locate object method .*start_range.* via package .*Mojolicious::Plugin::AssetPack::Asset.*' \
+    `# https://progress.opensuse.org/issues/15202` \
+    '!is not in any job group, will delete in.*' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
