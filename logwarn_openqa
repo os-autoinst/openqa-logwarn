@@ -17,4 +17,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!Can.*t locate object method .*start_range.* via package .*Mojolicious::Plugin::AssetPack::Asset.*' \
     `# https://progress.opensuse.org/issues/15202` \
     '!is not in any job group, will delete in.*' \
+    `# https://progress.opensuse.org/issues/17600` \
+    '!duplicate key value violates unique constraint "job_templates_product_id_machine_id_test_suite_id"' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
