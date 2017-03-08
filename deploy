@@ -1,0 +1,5 @@
+#!/bin/sh -e
+for host in o3 osd ; do
+    rsync -aHP logwarn_openqa ${host}:~/bin/
+    ssh ${host} "sudo mv ~okurz/bin/logwarn_openqa /usr/local/bin/logwarn_openqa"
+done
