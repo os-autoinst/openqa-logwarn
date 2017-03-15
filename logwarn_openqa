@@ -22,3 +22,5 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     `# https://progress.opensuse.org/issues/17652` \
     '!Not an OpenID message' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
+    `# https://progress.opensuse.org/issues/17708` \
+    '!dead job [0-9]+ aborted and duplicated [0-9]+'
