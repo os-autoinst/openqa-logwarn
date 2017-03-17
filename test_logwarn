@@ -25,6 +25,7 @@ echo $out | grep -q '\[4608:warn\] 619442 got a status update but has no worker.
 echo $out | grep -q '\[8980:warn\] 619391 got an artefact but has no worker. huh?' && exit 2
 echo $out | grep -q ':error.*Asset iso/foo.iso is not in any job group' && exit 2
 echo $out | grep -q 'is not in any job group, will delete in' && exit 2
+echo $out | grep -q '[websockets:warn] dead job 813295 aborted and duplicated 813306' && exit 2
 echo $out | grep -q '\[1719:warn\] AMQP connection error: Connect timeout' && exit 2
 
 
