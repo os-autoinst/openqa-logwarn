@@ -25,4 +25,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!.*AMQP.*Connect timeout.*' \
     `# https://progress.opensuse.org/issues/17708` \
     '!dead job [0-9]+ aborted and duplicated [0-9]+' \
+    `# https://progress.opensuse.org/issues/17784` \
+    '!Error sending AMQP event: Channel is not open' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@

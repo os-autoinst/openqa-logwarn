@@ -36,3 +36,4 @@ more output that is not properly prefixed
 [Thu Dec  1 12:41:26 2016] [25660:warn] Asset repo/SLE-12-SP3-SDK-POOL-s390x-Build0052-Media1 is not in any job group, will delete in 11 days
 [Thu Dec  5 12:41:26 2016] [1719:warn] AMQP connection error: Connect timeout
 [Thu Dec  5 12:41:26 2016] [websockets:warn] dead job 813295 aborted and duplicated 813306
+[Thu Dec  5 12:41:26 2016] [1719:warn] Error sending AMQP event: Channel is not open

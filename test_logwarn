@@ -27,6 +27,7 @@ echo $out | grep -q ':error.*Asset iso/foo.iso is not in any job group' && exit 
 echo $out | grep -q 'is not in any job group, will delete in' && exit 2
 echo $out | grep -q '[websockets:warn] dead job 813295 aborted and duplicated 813306' && exit 2
 echo $out | grep -q '\[1719:warn\] AMQP connection error: Connect timeout' && exit 2
+echo $out | grep -q '\[29213:warn\] Error sending AMQP event: Channel is not open' && exit 2
 
 
 echo "PASSED"
