@@ -29,4 +29,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!Error sending AMQP event: Channel is not open' \
     `# https://progress.opensuse.org/issues/18048` \
     '!warn\] AMQP connection closed' \
+    `# add bugzilla here` \
+    '!warn\] Error on AMQP channel received: Failed closing channel: Unknown channel id received: 1' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
