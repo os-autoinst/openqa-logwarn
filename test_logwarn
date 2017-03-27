@@ -29,6 +29,7 @@ echo $out | grep -q '[websockets:warn] dead job 813295 aborted and duplicated 81
 echo $out | grep -q '\[1719:warn\] AMQP connection error: Connect timeout' && exit 2
 echo $out | grep -q '\[29213:warn\] Error sending AMQP event: Channel is not open' && exit 2
 echo $out | grep -q '\[25898:warn\] AMQP connection closed' && exit 2
+echo $out | grep -q '\[21257:warn\] Error on AMQP channel received: Failed closing channel: Unknown channel id received: 1' && exit 2
 
 
 echo "PASSED"
