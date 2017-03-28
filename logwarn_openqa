@@ -31,4 +31,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!warn\] AMQP connection closed' \
     `# add bugzilla here` \
     '!warn\] Error on AMQP channel received: Failed closing channel: Unknown channel id received: 1' \
+    `# https://progress.opensuse.org/issues/18076 ` \
+    '!warn\] no products found, retrying version wildcard' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
