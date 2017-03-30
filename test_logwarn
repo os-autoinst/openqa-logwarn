@@ -6,6 +6,7 @@ out=$(env options="-f /dev/null -z" file=in.log sh -ex ./logwarn_openqa) || true
 echo "test error messages are included"
 echo $out | grep -q ':error.*File iso/bar.iso is not a registered asset'
 echo $out | grep -q ':error.*MISSING S:scheduled R:none'
+echo $out | grep -q 'FOOBAR='
 
 echo "test debug and info messages are not included"
 echo $out | grep -q '\[19382:info\] GRU: removing /var/lib/openqa/factory/iso/whocares.iso' && exit 2
@@ -31,5 +32,6 @@ echo $out | grep -q '\[29213:warn\] Error sending AMQP event: Channel is not ope
 echo $out | grep -q '\[25898:warn\] AMQP connection closed' && exit 2
 echo $out | grep -q '\[21257:warn\] Error on AMQP channel received: Failed closing channel: Unknown channel id received: 1' && exit 2
 echo $out | grep -q '\[31798:warn\] no products found, retrying version wildcard' && exit 2
+echo $out | grep -q '\[14008:warn\] START_AFTER_TEST=RAID0:ppc64le not found - check for typos and dependency cycles' && exit 2
 
 echo "PASSED"
