@@ -40,3 +40,5 @@ more output that is not properly prefixed
 [Mon Mar 27 10:12:33 2017] [25898:warn] AMQP connection closed
 [Mon Mar 27 05:22:16 2017] [21257:warn] Error on AMQP channel received: Failed closing channel: Unknown channel id received: 1
 [Tue Mar 28 07:09:40 2017] [31798:warn] no products found, retrying version wildcard
+[Wed Mar 29 11:25:38 2017] [14008:warn] START_AFTER_TEST=RAID0:ppc64le not found - check for typos and dependency cycles
+[Wed Mar 29 11:25:38 2017] [14008:warn] FOOBAR=RAID0:ppc64le not found - check for typos and dependency cycles
