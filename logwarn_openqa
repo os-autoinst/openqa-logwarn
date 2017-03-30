@@ -33,4 +33,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!warn\] Error on AMQP channel received: Failed closing channel: Unknown channel id received: 1' \
     `# https://progress.opensuse.org/issues/18076 ` \
     '!warn\] no products found, retrying version wildcard' \
+    `# https://progress.opensuse.org/issues/18162 ` \
+    '!warn\] START_AFTER_TEST=.* not found - check for typos and dependency cycles' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
