@@ -35,4 +35,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!warn\] no products found, retrying version wildcard' \
     `# https://progress.opensuse.org/issues/18162 ` \
     '!warn\] START_AFTER_TEST=.* not found - check for typos and dependency cycles' \
-    '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
+    `# https://progress.opensuse.org/issues/19424 ` \
+    '!Worker not found for given connection during connection close' \
+    '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@ 
