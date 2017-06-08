@@ -37,4 +37,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!warn\] START_AFTER_TEST=.* not found - check for typos and dependency cycles' \
     `# https://progress.opensuse.org/issues/19424 ` \
     '!Worker not found for given connection during connection close' \
-    '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@ 
+    `# https://progress.opensuse.org/issues/19674 ` \
+    '!warn\] AMQP connection error: SSL connect attempt failed with unknown error' \
+    '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
