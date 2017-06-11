@@ -41,4 +41,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!warn\] AMQP connection error: SSL connect attempt failed with unknown error' \
     `# https://progress.opensuse.org/issues/19730` \
     '!warn\] can.t remove.*png' \
+    `# https://progress.opensuse.org/issues/19732` \
+    '!scheduler:warn\] .* wants to grab a new job - killing the old one.*' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
