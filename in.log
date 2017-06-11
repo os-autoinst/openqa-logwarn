@@ -44,3 +44,4 @@ more output that is not properly prefixed
 [Wed Mar 29 11:25:38 2017] [14008:warn] FOOBAR=RAID0:ppc64le not found - check for typos and dependency cycles
 [Tue May 30 06:10:09 2017] [websockets:error] Worker not found for given connection during connection close
 [Thu Jun  8 15:01:28 2017] [15550:warn] AMQP connection error: SSL connect attempt failed with unknown error
+[Sun Jun 11 00:09:19 2017] [18666:warn] can't remove d81/349/2cab90e04faac6f7a112c5ed90.png

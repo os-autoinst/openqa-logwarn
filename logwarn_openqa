@@ -39,4 +39,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!Worker not found for given connection during connection close' \
     `# https://progress.opensuse.org/issues/19674 ` \
     '!warn\] AMQP connection error: SSL connect attempt failed with unknown error' \
+    `# https://progress.opensuse.org/issues/19730` \
+    '!warn\] can.t remove.*png' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
