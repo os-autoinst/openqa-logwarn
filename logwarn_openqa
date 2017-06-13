@@ -44,5 +44,5 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     `# https://progress.opensuse.org/issues/19732` \
     '!scheduler:warn\] .* wants to grab a new job - killing the old one.*' \
     `# https://progress.opensuse.org/issues/19756` \
-    '!websockets:error\] Unknown property received from worker .*'
+    '!websockets:error\] Unknown property received from worker .*' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
