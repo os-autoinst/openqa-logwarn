@@ -38,4 +38,5 @@ echo $out | grep -q '\[15550:warn] AMQP connection error: SSL connect attempt fa
 echo $out | grep -q "can't remove d81/349/2cab90e04faac6f7a112c5ed90.png" && exit 2
 echo $out | grep -q "\[scheduler:warn\] openqaworker5:20 wants to grab a new job - killing the old one: 993795" && exit 2
 echo $out | grep -q '\[websockets:error] Unknown property received from worker 523' && exit 2
+echo $out | grep -q '\[websockets:warn] dead job 997744 aborted as incomplete' && exit 2
 echo "PASSED"
