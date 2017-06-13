@@ -45,4 +45,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!scheduler:warn\] .* wants to grab a new job - killing the old one.*' \
     `# https://progress.opensuse.org/issues/19756` \
     '!websockets:error\] Unknown property received from worker .*' \
+    `# https://progress.opensuse.org/issues/19794` \
+    '!websockets:warn\] dead job .* aborted as incomplete' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
