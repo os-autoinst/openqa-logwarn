@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 set -o pipefail
 
 out=$(env options="-f /dev/null -z" file=in.log sh -ex ./logwarn_openqa) || true
