@@ -6,7 +6,7 @@ set -e
 HOST=$(hostname --long)
 SUBJECT="OpenQA logreport for $HOST"
 SENDER="openqa-monitor@$HOST"
-SENDTO="${SENDTO:-"nsinger@suse.de"}"
+REPORTTO="${REPORTTO:-"nsinger@suse.de"}"
 
 # automatically update the script while preserving maybe added hotfixes
 cd /opt/openqa_monitoring
@@ -20,5 +20,5 @@ WARNINGS=$(./logwarn_openqa "$1")
 set -e
 
 if [ ! -z "$WARNINGS" ]; then
-    echo "$WARNINGS" | mail -r "$SENDER" -s "$SUBJECT" "$SENDTO"
+    echo "$WARNINGS" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
 fi
