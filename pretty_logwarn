@@ -11,7 +11,9 @@ SENDTO="${SENDTO:-"nsinger@suse.de"}"
 
 #automatically update the script while preserving maybe added hotfixes
 cd /opt/openqa_monitoring
-git pull --quiet --rebase origin master
+# git pull --quiet --rebase origin master # This sometimes fails with "cannot rebase onto multiple branches".
+git fetch --quiet --all --prune
+git rebase --quiet origin/master
 
 #script exits with 1 if errors a found so don't exit here on exitcode != 0
 set +e
