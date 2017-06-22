@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# exit if failure occours inside the script
+set -e
+
+HOST=$(hostname --long)
+SUBJECT="OpenQA logreport for $HOST"
+SENDER="openqa-monitor@$HOST"
+REPORTTO="${REPORTTO:-"nsinger@suse.de"}"
+
+# automatically update the script while preserving maybe added hotfixes
+cd /opt/openqa_monitoring
+# git pull --quiet --rebase origin master # This sometimes fails with "cannot rebase onto multiple branches".
+git fetch --quiet --all --prune
+git rebase --quiet origin/master
+
+# script exits with 1 if new errors are found so don't exit here on exitcode != 0
+set +e
+WARNINGS=$(./logwarn_openqa "$1")
+set -e
+
+if [ ! -z "$WARNINGS" ]; then
+    echo "$WARNINGS" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
+fi
