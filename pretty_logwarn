@@ -1,7 +1,4 @@
-#!/bin/bash
-
-# exit if failure occours inside the script
-set -e
+#!/bin/sh -e
 
 HOST=$(hostname --long)
 SUBJECT="OpenQA logreport for $HOST"
@@ -15,9 +12,7 @@ git fetch --quiet --all --prune
 git rebase --quiet origin/master
 
 # script exits with 1 if new errors are found so don't exit here on exitcode != 0
-set +e
-WARNINGS=$(./logwarn_openqa "$1")
-set -e
+WARNINGS=$(./logwarn_openqa "$1" || true)
 
 if [ ! -z "$WARNINGS" ]; then
     echo "$WARNINGS" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
