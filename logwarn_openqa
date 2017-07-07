@@ -47,4 +47,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!websockets:error\] Unknown property received from worker .*' \
     `# https://progress.opensuse.org/issues/19794` \
     '!websockets:warn\] dead job .* aborted as incomplete' \
+    `# https://progress.opensuse.org/issues/20218` \
+    '!error\] Failed to login: OpenID provider returned invalid data\. Please retry again' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@

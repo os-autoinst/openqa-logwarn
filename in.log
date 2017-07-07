@@ -48,3 +48,4 @@ more output that is not properly prefixed
 [Sun Jun 11 00:34:56 2017] [scheduler:warn] openqaworker5:20 wants to grab a new job - killing the old one: 993795
 [Mon Jun 12 07:33:15 2017] [websockets:error] Unknown property received from worker 523
 [Tue Jun 13 10:04:30 2017] [websockets:warn] dead job 997744 aborted as incomplete
+[Fri Jul  7 04:50:50 2017] [10709:error] Failed to login: OpenID provider returned invalid data. Please retry again
