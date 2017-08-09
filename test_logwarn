@@ -40,4 +40,5 @@ echo $out | grep -q "\[scheduler:warn\] openqaworker5:20 wants to grab a new job
 echo $out | grep -q '\[websockets:error] Unknown property received from worker 523' && exit 2
 echo $out | grep -q '\[websockets:warn] dead job 997744 aborted as incomplete' && exit 2
 echo $out | grep -q '\[10709:error\] Failed to login: OpenID provider returned invalid data\. Please retry again' && exit 2
+echo $out | grep -q '\[websockets:warn\] A message received from unknown worker connection' && exit 2
 echo "PASSED"
