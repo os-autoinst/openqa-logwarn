@@ -50,3 +50,4 @@ more output that is not properly prefixed
 [Tue Jun 13 10:04:30 2017] [websockets:warn] dead job 997744 aborted as incomplete
 [Fri Jul  7 04:50:50 2017] [10709:error] Failed to login: OpenID provider returned invalid data. Please retry again
 [Wed Aug  9 09:31:41 2017] [websockets:warn] A message received from unknown worker connection
+[Wed Aug  2 13:49:10 2017] [28861:warn] Stopping worker 4210 immediately
