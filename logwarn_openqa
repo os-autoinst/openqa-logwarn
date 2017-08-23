@@ -51,4 +51,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!error\] Failed to login: OpenID provider returned invalid data\. Please retry again' \
     `# https://progress.opensuse.org/issues/21836` \
     '!websockets:warn\] A message received from unknown worker connection' \
+    `# https://progress.opensuse.org/issues/23536` \
+    '!error\] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
