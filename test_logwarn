@@ -43,4 +43,5 @@ echo $out | grep -q '\[10709:error\] Failed to login: OpenID provider returned i
 echo $out | grep -q '\[websockets:warn\] A message received from unknown worker connection' && exit 2
 echo $out | grep -q '\[28861:warn] Stopping worker 4210 immediately' && exit 2
 echo $out | grep -q '\[4087:error] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.' && exit 2
+echo $out | grep -q '\[25795:warn] AMQP connection error: No route to host' && exit 2
 echo "PASSED"
