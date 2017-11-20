@@ -27,8 +27,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!dead job [0-9]+ aborted and duplicated [0-9]+' \
     `# https://progress.opensuse.org/issues/18048` \
     '!warn\] AMQP connection closed' \
-    `# https://progress.opensuse.org/issues/18052` \
-    '!warn\] Error on AMQP channel received: Failed closing channel: Unknown channel id received: 1' \
     `# https://progress.opensuse.org/issues/18076 ` \
     '!warn\] no products found, retrying version wildcard' \
     `# https://progress.opensuse.org/issues/18162 ` \
