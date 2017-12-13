@@ -29,7 +29,6 @@ echo $out | grep -q 'is not in any job group, will delete in' && exit 2
 echo $out | grep -q '[websockets:warn] dead job 813295 aborted and duplicated 813306' && exit 2
 echo $out | grep -q '\[1719:warn\] AMQP connection error: Connect timeout' && exit 2
 echo $out | grep -q '\[25898:warn\] AMQP connection closed' && exit 2
-echo $out | grep -q '\[21257:warn\] Error on AMQP channel received: Failed closing channel: Unknown channel id received: 1' && exit 2
 echo $out | grep -q '\[31798:warn\] no products found, retrying version wildcard' && exit 2
 echo $out | grep -q '\[14008:warn\] START_AFTER_TEST=RAID0:ppc64le not found - check for typos and dependency cycles' && exit 2
 echo $out | grep -q 'Worker not found for given connection during connection close' && exit 2
