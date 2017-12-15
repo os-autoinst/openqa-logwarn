@@ -53,4 +53,7 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!error\] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.' \
     `# https://progress.opensuse.org/issues/19674 ` \
     '!warn\] AMQP connection error: No route to host' \
+    `# https://progress.opensuse.org/issues/29289` \
+    '!warn\].*\/needles\/.*: No such file or directory' \
+    '!error] Could not parse needle:.*' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
