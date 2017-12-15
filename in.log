@@ -51,3 +51,6 @@ more output that is not properly prefixed
 [Wed Aug  2 13:49:10 2017] [28861:warn] Stopping worker 4210 immediately
 [Wed Aug 23 09:49:19 2017] [4087:error] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.
 [Sun Aug 27 18:09:23 2017] [25795:warn] AMQP connection error: No route to host
+[Fri Oct 20 11:55:02 2017] [22402:error] Could not parse needle: installation-bootloader-options-20171019 for sle 15
+[Fri Oct 20 11:49:21 2017] [7532:warn] /var/lib/openqa/share/tests/sle/products/sle/needles/installation-bootloader-options-20171019.json: No such file or directory
+

@@ -42,4 +42,6 @@ echo $out | grep -q '\[websockets:warn\] A message received from unknown worker 
 echo $out | grep -q '\[28861:warn] Stopping worker 4210 immediately' && exit 2
 echo $out | grep -q '\[4087:error] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.' && exit 2
 echo $out | grep -q '\[25795:warn] AMQP connection error: No route to host' && exit 2
+echo $out | grep -q '\[22402:error] Could not parse needle: installation-bootloader-options-20171019 for sle 15' && exit 2
+echo $out | grep -q '\[7532:warn] /var/lib/openqa/share/tests/sle/products/sle/needles/installation-bootloader-options-20171019.json: No such file or directory' && exit 2
 echo "PASSED"
