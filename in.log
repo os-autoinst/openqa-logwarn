@@ -66,3 +66,4 @@ more output that is not properly prefixed
 35:         </td>
 36:     </tr>
 37:     % $depth++;
+[Fri Dec 15 17:27:25 2017] [23481:error] DBIx::Class::Storage::DBI::_dbh_execute(): DBI Exception: DBD::Pg::st execute failed: ERROR:  invalid input syntax for integer: "127)," [for Statement "SELECT me.id, me.name, me.parent_id, me.size_limit_gb, me.exclusively_kept_asset_size, me.keep_logs_in_days, me.keep_important_logs_in_days, me.keep_results_in_days, me.keep_important_results_in_days, me.default_priority, me.sort_order, me.description, me.build_version_sort, me.t_created, me.t_updated FROM job_groups me WHERE ( id = ? )" with ParamValues: 1='127),'] at /usr/share/openqa/script/../lib/OpenQA/WebAPI/Controller/Test.pm line 501
