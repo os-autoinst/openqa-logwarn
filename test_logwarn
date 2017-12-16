@@ -26,13 +26,13 @@ echo $out | grep -q '\[4608:warn\] 619442 got a status update but has no worker.
 echo $out | grep -q '\[8980:warn\] 619391 got an artefact but has no worker. huh?' && exit 2
 echo $out | grep -q ':error.*Asset iso/foo.iso is not in any job group' && exit 2
 echo $out | grep -q 'is not in any job group, will delete in' && exit 2
-echo $out | grep -q '[websockets:warn] dead job 813295 aborted and duplicated 813306' && exit 2
+echo $out | grep -q '\[websockets:warn\] dead job 813295 aborted and duplicated 813306' && exit 2
 echo $out | grep -q '\[1719:warn\] AMQP connection error: Connect timeout' && exit 2
 echo $out | grep -q '\[25898:warn\] AMQP connection closed' && exit 2
 echo $out | grep -q '\[31798:warn\] no products found, retrying version wildcard' && exit 2
 echo $out | grep -q '\[14008:warn\] START_AFTER_TEST=RAID0:ppc64le not found - check for typos and dependency cycles' && exit 2
 echo $out | grep -q 'Worker not found for given connection during connection close' && exit 2
-echo $out | grep -q '\[15550:warn] AMQP connection error: SSL connect attempt failed with unknown error' && exit 2
+echo $out | grep -q '\[15550:warn\] AMQP connection error: SSL connect attempt failed with unknown error' && exit 2
 echo $out | grep -q "can't remove d81/349/2cab90e04faac6f7a112c5ed90.png" && exit 2
 echo $out | grep -q "\[scheduler:warn\] openqaworker5:20 wants to grab a new job - killing the old one: 993795" && exit 2
 echo $out | grep -q '\[websockets:error] Unknown property received from worker 523' && exit 2
@@ -44,4 +44,7 @@ echo $out | grep -q '\[4087:error] org.freedesktop.DBus.Error.NoReply: Did not r
 echo $out | grep -q '\[25795:warn] AMQP connection error: No route to host' && exit 2
 echo $out | grep -q '\[22402:error] Could not parse needle: installation-bootloader-options-20171019 for sle 15' && exit 2
 echo $out | grep -q '\[7532:warn] /var/lib/openqa/share/tests/sle/products/sle/needles/installation-bootloader-options-20171019.json: No such file or directory' && exit 2
+echo $out | grep -q '\[websockets:error] Unknown property received from worker 523' && exit 2
+echo $out | grep -q '\[websockets:warn] dead job 997744 aborted as incomplete' && exit 2
+echo $out | grep -q '\[websockets:error\] .*api_description' && exit 2
 echo "PASSED"

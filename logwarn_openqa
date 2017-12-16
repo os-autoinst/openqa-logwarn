@@ -56,4 +56,6 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     `# https://progress.opensuse.org/issues/29289` \
     '!warn\].*\/needles\/.*: No such file or directory' \
     '!error] Could not parse needle:.*' \
+    `# https://progress.opensuse.org/issues/29478` \
+    '!websockets:error\] Global symbol.*api_description.*not_found\.html\.ep' \
     '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
