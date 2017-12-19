@@ -53,4 +53,17 @@ more output that is not properly prefixed
 [Sun Aug 27 18:09:23 2017] [25795:warn] AMQP connection error: No route to host
 [Fri Oct 20 11:55:02 2017] [22402:error] Could not parse needle: installation-bootloader-options-20171019 for sle 15
 [Fri Oct 20 11:49:21 2017] [7532:warn] /var/lib/openqa/share/tests/sle/products/sle/needles/installation-bootloader-options-20171019.json: No such file or directory
-
+[Fri Dec 15 17:27:25 2017] [23481:error] DBIx::Class::Storage::DBI::_dbh_execute(): DBI Exception: DBD::Pg::st execute failed: ERROR:  invalid input syntax for integer: "127)," [for Statement "SELECT me.id, me.name, me.parent_id, me.size_limit_gb, me.exclusively_kept_asset_size, me.keep_logs_in_days, me.keep_important_logs_in_days, me.keep_results_in_days, me.keep_important_results_in_days, me.default_priority, me.sort_order, me.description, me.build_version_sort, me.t_created, me.t_updated FROM job_groups me WHERE ( id = ? )" with ParamValues: 1='127),'] at /usr/share/openqa/script/../lib/OpenQA/WebAPI/Controller/Test.pm line 501
+15 15:49:04 2017] [websockets:error] Global symbol "$api_description" requires explicit package name at template not_found.html.ep line 32.
+27:         <td>
+28:             % my $name = $route->name;
+29:             <%= $route->has_custom_name ? qq{"$name"} : $name %>
+30:         </td>
+31:         <td>
+32:             % if (my $description = $api_description->{$route->name}) {
+33:                 %= $description
+34:             % }
+35:         </td>
+36:     </tr>
+37:     % $depth++;
+[Fri Dec 15 17:27:25 2017] [23481:error] DBIx::Class::Storage::DBI::_dbh_execute(): DBI Exception: DBD::Pg::st execute failed: ERROR:  invalid input syntax for integer: "127)," [for Statement "SELECT me.id, me.name, me.parent_id, me.size_limit_gb, me.exclusively_kept_asset_size, me.keep_logs_in_days, me.keep_important_logs_in_days, me.keep_results_in_days, me.keep_important_results_in_days, me.default_priority, me.sort_order, me.description, me.build_version_sort, me.t_created, me.t_updated FROM job_groups me WHERE ( id = ? )" with ParamValues: 1='127),'] at /usr/share/openqa/script/../lib/OpenQA/WebAPI/Controller/Test.pm line 501
