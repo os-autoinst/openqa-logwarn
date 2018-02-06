@@ -21,6 +21,9 @@ echo $out | grep -q 'blocking   => 0,' && exit 2
 echo $out | grep -q 'cpu_modelname => undef,' && exit 2
 echo $out | grep -q '^\]$' && exit 2
 
+echo "New style openQA log format is supported"
+echo $out | grep -q '\[2018-02-06T04:02:24.0435 CET\] \[error\] The world is coming to an end'
+
 echo "Known and blacklisted log lines are not included"
 echo $out | grep -q '\[4608:warn\] 619442 got a status update but has no worker. huh?' && exit 2
 echo $out | grep -q '\[8980:warn\] 619391 got an artefact but has no worker. huh?' && exit 2
