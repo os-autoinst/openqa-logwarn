@@ -2,7 +2,7 @@
 file="${file:-"${1:-"/var/log/openqa"}"}"
 options="${options:-""}"
 logwarn="${logwarn:-$(which logwarn)}"
-$logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
+$logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     `# ignore known warnings mentioned in https://progress.opensuse.org/issues/13952` \
     '!got a status update but has no worker' \
     '!got an artefact but has no worker' \
@@ -60,4 +60,4 @@ $logwarn ${options} -m '\[.*:(debug|info|warn|error)\]' -p ${file} \
     '!websockets:error\] Global symbol.*api_description.*not_found\.html\.ep' \
     `# https://progress.opensuse.org/issues/29481` \
     '!:error\] .*DBI Exception.*ERROR:  invalid input syntax for integer.* at .*Controller/Test.pm' \
-    '\[.*:(warn|error)\]' '!\[.*:(debug|info)\]' $@
+    '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
