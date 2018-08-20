@@ -57,7 +57,7 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!warn\].*\/needles\/.*: No such file or directory' \
     '!error] Could not parse needle:.*' \
     `# https://progress.opensuse.org/issues/29478` \
-    '!websockets:error\] Global symbol.*api_description.*not_found\.html\.ep' \
+    '!error\] Global symbol.*api_description.*not_found\.html\.ep' \
     `# https://progress.opensuse.org/issues/29481` \
     '!:error\] .*DBI Exception.*ERROR:  invalid input syntax for integer.* at .*Controller/Test.pm' \
     `# https://progress.opensuse.org/issues/40007` \

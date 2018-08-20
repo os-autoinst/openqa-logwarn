@@ -69,3 +69,5 @@ more output that is not properly prefixed
 [Fri Dec 15 17:27:25 2017] [23481:error] DBIx::Class::Storage::DBI::_dbh_execute(): DBI Exception: DBD::Pg::st execute failed: ERROR:  invalid input syntax for integer: "127)," [for Statement "SELECT me.id, me.name, me.parent_id, me.size_limit_gb, me.exclusively_kept_asset_size, me.keep_logs_in_days, me.keep_important_logs_in_days, me.keep_results_in_days, me.keep_important_results_in_days, me.default_priority, me.sort_order, me.description, me.build_version_sort, me.t_created, me.t_updated FROM job_groups me WHERE ( id = ? )" with ParamValues: 1='127),'] at /usr/share/openqa/script/../lib/OpenQA/WebAPI/Controller/Test.pm line 501
 [2018-02-06T04:02:24.0435 CET] [error] The world is coming to an end
 [2018-08-20T11:15:38.0819 UTC] [warn] A message received from unknown worker connection
+[2018-08-20T11:25:43.0863 UTC] [error] Global symbol "$api_description" requires explicit package name at template not_found.html.ep line 32.
+

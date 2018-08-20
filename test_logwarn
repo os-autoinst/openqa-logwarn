@@ -49,7 +49,7 @@ echo $out | grep -q '\[22402:error] Could not parse needle: installation-bootloa
 echo $out | grep -q '\[7532:warn] /var/lib/openqa/share/tests/sle/products/sle/needles/installation-bootloader-options-20171019.json: No such file or directory' && exit 2
 echo $out | grep -q '\[websockets:error] Unknown property received from worker 523' && exit 2
 echo $out | grep -q '\[websockets:warn] dead job 997744 aborted as incomplete' && exit 2
-echo $out | grep -q '\[websockets:error\] .*api_description' && exit 2
+echo $out | grep -q 'error\] .*api_description' && exit 2
 echo $out | grep -q 'DBI Exception' && exit 2
 echo $out | grep -q '\[.*warn\] A message received from unknown worker connection' && exit 2
 echo "PASSED"
