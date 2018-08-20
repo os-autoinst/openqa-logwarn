@@ -60,4 +60,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!websockets:error\] Global symbol.*api_description.*not_found\.html\.ep' \
     `# https://progress.opensuse.org/issues/29481` \
     '!:error\] .*DBI Exception.*ERROR:  invalid input syntax for integer.* at .*Controller/Test.pm' \
+    `# https://progress.opensuse.org/issues/40007` \
+    '!warn\].*A message received from unknown worker connection' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@

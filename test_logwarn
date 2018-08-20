@@ -51,4 +51,5 @@ echo $out | grep -q '\[websockets:error] Unknown property received from worker 5
 echo $out | grep -q '\[websockets:warn] dead job 997744 aborted as incomplete' && exit 2
 echo $out | grep -q '\[websockets:error\] .*api_description' && exit 2
 echo $out | grep -q 'DBI Exception' && exit 2
+echo $out | grep -q '\[.*warn\] A message received from unknown worker connection' && exit 2
 echo "PASSED"
