@@ -70,4 +70,4 @@ more output that is not properly prefixed
 [2018-02-06T04:02:24.0435 CET] [error] The world is coming to an end
 [2018-08-20T11:15:38.0819 UTC] [warn] A message received from unknown worker connection
 [2018-08-20T11:25:43.0863 UTC] [error] Global symbol "$api_description" requires explicit package name at template not_found.html.ep line 32.
-
+[2019-06-21T03:39:04.0573 UTC] [warn] Unable to get filename from http://openqa.opensuse.org. Ignoring OPENQA_HOST_URL

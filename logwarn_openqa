@@ -62,4 +62,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!:error\] .*DBI Exception.*ERROR:  invalid input syntax for integer.* at .*Controller/Test.pm' \
     `# https://progress.opensuse.org/issues/40007` \
     '!warn\].*A message received from unknown worker connection' \
+    `# https://progress.opensuse.org/issues/53399` \
+    '!warn\].*Unable to get filename from .* Ignoring OPENQA_HOST_URL' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
