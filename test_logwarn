@@ -53,4 +53,5 @@ echo $out | grep -q 'error\] .*api_description' && exit 2
 echo $out | grep -q 'DBI Exception' && exit 2
 echo $out | grep -q '\[.*warn\] A message received from unknown worker connection' && exit 2
 echo $out | grep -q '\[.*warn\] Unable to get filename' && exit 2
+echo $out | grep -q '\[.*warn\] has no child, check its machine placed' && exit 2
 echo "PASSED"

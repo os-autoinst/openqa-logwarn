@@ -64,4 +64,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!warn\].*A message received from unknown worker connection' \
     `# https://progress.opensuse.org/issues/53399` \
     '!warn\].*Unable to get filename from .* Ignoring OPENQA_HOST_URL' \
+    `# https://progress.opensuse.org/issues/53405` \
+    '!warn\].*has no child, check its machine placed or dependency setting typos' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
