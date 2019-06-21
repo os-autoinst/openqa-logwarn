@@ -66,4 +66,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!warn\].*Unable to get filename from .* Ignoring OPENQA_HOST_URL' \
     `# https://progress.opensuse.org/issues/53405` \
     '!warn\].*has no child, check its machine placed or dependency setting typos' \
+    `# https://progress.opensuse.org/issues/53435` \
+    '!error\].*DBIx.*number of parameters must be between.*OpenQA/WebAPI/Controller/API/V1/Job' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
