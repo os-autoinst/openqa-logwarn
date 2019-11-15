@@ -5,6 +5,7 @@ HOST=$(hostname --long)
 SUBJECT="OpenQA logreport for $HOST"
 SENDER="openqa-monitor@$HOST"
 REPORTTO="${REPORTTO:-"nsinger@suse.de"}"
+COLUMN_LIMIT="${COLUMN_LIMIT:-1000}"
 LINE_LIMIT="${LINE_LIMIT:-1000}"
 
 # automatically update the script while preserving maybe added hotfixes
@@ -16,8 +17,9 @@ git rebase --quiet origin/master
 
 # script exits with 1 if new errors are found so don't exit here on exitcode != 0
 # limit the length of each line to prevent overly long lines killing even
-# email clients, e.g. database exceptions list every single table index
-WARNINGS=$(./logwarn_openqa "$1" | cut -c -$LINE_LIMIT || true)
+# email clients, e.g. database exceptions list every single table index.
+# also truncate after too many lines
+WARNINGS=$(./logwarn_openqa "$1" | cut -c -$COLUMN_LIMIT | head -n $LINE_LIMIT || true)
 
 if [ ! -z "$WARNINGS" ]; then
     echo "$WARNINGS" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
