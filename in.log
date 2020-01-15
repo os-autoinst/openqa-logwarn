@@ -44,8 +44,6 @@ more output that is not properly prefixed
 [Thu Jun  8 15:01:28 2017] [15550:warn] AMQP connection error: SSL connect attempt failed with unknown error
 [Sun Jun 11 00:09:19 2017] [18666:warn] can't remove d81/349/2cab90e04faac6f7a112c5ed90.png
 [Sun Jun 11 00:34:56 2017] [scheduler:warn] openqaworker5:20 wants to grab a new job - killing the old one: 993795
-[Mon Jun 12 07:33:15 2017] [websockets:error] Unknown property received from worker 523
-[Tue Jun 13 10:04:30 2017] [websockets:warn] dead job 997744 aborted as incomplete
 [Fri Jul  7 04:50:50 2017] [10709:error] Failed to login: OpenID provider returned invalid data. Please retry again
 [Wed Aug  9 09:31:41 2017] [websockets:warn] A message received from unknown worker connection
 [Wed Aug  2 13:49:10 2017] [28861:warn] Stopping worker 4210 immediately
