@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: |
+          wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/logwarn/logwarn-1.0.11.tar.gz
+          tar xvf logwarn-1.0.11.tar.gz
+          cd logwarn-1.0.11
+          ./configure --prefix=/tmp/logwarn && make && make install
+
+      - run: |
+          PATH=/tmp/logwarn/bin:$PATH ./test_logwarn
