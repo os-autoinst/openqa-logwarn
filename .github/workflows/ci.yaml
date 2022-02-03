@@ -22,4 +22,4 @@ jobs:
           ./configure --prefix=/tmp/logwarn && make && make install
 
       - run: |
-          PATH=/tmp/logwarn/bin:$PATH ./test_logwarn
+          PATH=/tmp/logwarn/bin:$PATH prove -v ./test_logwarn
