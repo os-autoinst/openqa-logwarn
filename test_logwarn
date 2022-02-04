@@ -2,58 +2,95 @@
 set -o pipefail
 
 out=$(env options="-f /dev/null -z" file=in.log sh -ex ./logwarn_openqa) || true
+declare -i testnum=0
+declare -i rc=0
+pass() {
+    testnum+=1
+    echo "ok $testnum - $1"
+}
+fail() {
+    testnum+=1
+    echo "not ok $testnum - $1"
+    rc=1
+}
+done-testing() {
+    echo "1..$testnum"
+}
+is-ignored() {
+    local string=$1 label=$2
+    label=${label:-"String >>$string<< is ignored"}
+    if echo "$out" | grep -q "$string"; then
+        fail "$label"
+    else
+        pass "$label"
+    fi
+}
+is-included() {
+    local string=$1 label=$2
+    label=${label:-"String >>$string<< is included"}
+    if echo "$out" | grep -q "$string"; then
+        pass "$label"
+    else
+        fail "$label"
+    fi
+}
+
 
 echo "test error messages are included"
-echo $out | grep -q ':error.*File iso/bar.iso is not a registered asset'
-echo $out | grep -q ':error.*MISSING S:scheduled R:none'
-echo $out | grep -q 'FOOBAR='
+is-included ':error.*File iso/bar.iso is not a registered asset'
+is-included ':error.*MISSING S:scheduled R:none'
+is-included 'FOOBAR='
 
 echo "test debug and info messages are not included"
-echo $out | grep -q '\[19382:info\] GRU: removing /var/lib/openqa/factory/iso/whocares.iso' && exit 2
-echo $out | grep -q '\[websockets:debug\] \[DBIx debug\] Took 0.00216508 seconds executed: UPDATE workers ...' && exit 2
+is-ignored '\[19382:info\] GRU: removing /var/lib/openqa/factory/iso/whocares.iso'
+is-ignored '\[websockets:debug\] \[DBIx debug\] Took 0.00216508 seconds executed: UPDATE workers ...'
 
 echo "not prefixed output is NOT included"
-echo $out | grep -q 'more output that is not properly prefixed' && exit 2
+is-ignored 'more output that is not properly prefixed'
 
 echo "multi-line debug is not included"
-echo $out | grep -q '\[Thu Oct  6 01:15:54 2016\] \[27316:debug\] dispatching IPC job_grab to scheduler: \[' && exit 2
-echo $out | grep -q 'blocking   => 0,' && exit 2
-echo $out | grep -q 'cpu_modelname => undef,' && exit 2
-echo $out | grep -q '^\]$' && exit 2
+is-ignored '\[Thu Oct  6 01:15:54 2016\] \[27316:debug\] dispatching IPC job_grab to scheduler: \['
+is-ignored 'blocking   => 0,'
+is-ignored 'cpu_modelname => undef,'
+is-ignored '^\]$'
 
 echo "New style openQA log format is supported"
-echo $out | grep -q '\[2018-02-06T04:02:24.0435 CET\] \[error\] The world is coming to an end'
+is-included '\[2018-02-06T04:02:24.0435 CET\] \[error\] The world is coming to an end'
 
 echo "Known and blacklisted log lines are not included"
-echo $out | grep -q '\[4608:warn\] 619442 got a status update but has no worker. huh?' && exit 2
-echo $out | grep -q '\[8980:warn\] 619391 got an artefact but has no worker. huh?' && exit 2
-echo $out | grep -q ':error.*Asset iso/foo.iso is not in any job group' && exit 2
-echo $out | grep -q 'is not in any job group, will delete in' && exit 2
-echo $out | grep -q '\[websockets:warn\] dead job 813295 aborted and duplicated 813306' && exit 2
-echo $out | grep -q '\[1719:warn\] AMQP connection error: Connect timeout' && exit 2
-echo $out | grep -q '\[25898:warn\] AMQP connection closed' && exit 2
-echo $out | grep -q '\[31798:warn\] no products found, retrying version wildcard' && exit 2
-echo $out | grep -q '\[14008:warn\] START_AFTER_TEST=RAID0:ppc64le not found - check for typos and dependency cycles' && exit 2
-echo $out | grep -q 'Worker not found for given connection during connection close' && exit 2
-echo $out | grep -q '\[15550:warn\] AMQP connection error: SSL connect attempt failed with unknown error' && exit 2
-echo $out | grep -q "can't remove d81/349/2cab90e04faac6f7a112c5ed90.png" && exit 2
-echo $out | grep -q "\[scheduler:warn\] openqaworker5:20 wants to grab a new job - killing the old one: 993795" && exit 2
-echo $out | grep -q '\[websockets:error] Unknown property received from worker 523' && exit 2
-echo $out | grep -q '\[websockets:warn] dead job 997744 aborted as incomplete' && exit 2
-echo $out | grep -q '\[10709:error\] Failed to login: OpenID provider returned invalid data\. Please retry again' && exit 2
-echo $out | grep -q '\[websockets:warn\] A message received from unknown worker connection' && exit 2
-echo $out | grep -q '\[28861:warn] Stopping worker 4210 immediately' && exit 2
-echo $out | grep -q '\[4087:error] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.' && exit 2
-echo $out | grep -q '\[25795:warn] AMQP connection error: No route to host' && exit 2
-echo $out | grep -q '\[22402:error] Could not parse needle: installation-bootloader-options-20171019 for sle 15' && exit 2
-echo $out | grep -q '\[7532:warn] /var/lib/openqa/share/tests/sle/products/sle/needles/installation-bootloader-options-20171019.json: No such file or directory' && exit 2
-echo $out | grep -q '\[websockets:error] Unknown property received from worker 523' && exit 2
-echo $out | grep -q '\[websockets:warn] dead job 997744 aborted as incomplete' && exit 2
-echo $out | grep -q 'error\] .*api_description' && exit 2
-echo $out | grep -q 'DBI Exception' && exit 2
-echo $out | grep -q '\[.*warn\] A message received from unknown worker connection' && exit 2
-echo $out | grep -q '\[.*warn\] Unable to get filename' && exit 2
-echo $out | grep -q '\[.*warn\] has no child, check its machine placed' && exit 2
-echo $out | grep -q '\[error\] DBIx.*number of parameters must be between.*OpenQA/WebAPI/Controller/API/V1/Job.pm' && exit 2
-echo $out | grep -q '\[error\] mkdir /var/lib/openqa/images/0bf/862/.thumbs: File exists at /usr/share/openqa/script/../lib/OpenQA/Schema/Result/Jobs.pm line 1227' && exit 2
-echo "PASSED"
+is-ignored '\[4608:warn\] 619442 got a status update but has no worker. huh?'
+is-ignored '\[8980:warn\] 619391 got an artefact but has no worker. huh?'
+is-ignored ':error.*Asset iso/foo.iso is not in any job group'
+is-ignored 'is not in any job group, will delete in'
+is-ignored '\[websockets:warn\] dead job 813295 aborted and duplicated 813306'
+is-ignored '\[1719:warn\] AMQP connection error: Connect timeout'
+is-ignored '\[25898:warn\] AMQP connection closed'
+is-ignored '\[31798:warn\] no products found, retrying version wildcard'
+is-ignored '\[14008:warn\] START_AFTER_TEST=RAID0:ppc64le not found - check for typos and dependency cycles'
+is-ignored 'Worker not found for given connection during connection close'
+is-ignored '\[15550:warn\] AMQP connection error: SSL connect attempt failed with unknown error'
+is-ignored "can't remove d81/349/2cab90e04faac6f7a112c5ed90.png"
+is-ignored '\[scheduler:warn\] openqaworker5:20 wants to grab a new job - killing the old one: 993795'
+is-ignored '\[websockets:error] Unknown property received from worker 523'
+is-ignored '\[websockets:warn] dead job 997744 aborted as incomplete'
+is-ignored '\[10709:error\] Failed to login: OpenID provider returned invalid data\. Please retry again'
+is-ignored '\[websockets:warn\] A message received from unknown worker connection'
+is-ignored '\[28861:warn] Stopping worker 4210 immediately'
+is-ignored '\[4087:error] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.'
+is-ignored '\[25795:warn] AMQP connection error: No route to host'
+is-ignored '\[22402:error] Could not parse needle: installation-bootloader-options-20171019 for sle 15'
+is-ignored '\[7532:warn] /var/lib/openqa/share/tests/sle/products/sle/needles/installation-bootloader-options-20171019.json: No such file or directory'
+is-ignored '\[websockets:error] Unknown property received from worker 523'
+is-ignored '\[websockets:warn] dead job 997744 aborted as incomplete'
+is-ignored 'error\] .*api_description'
+is-ignored 'DBI Exception'
+is-ignored '\[.*warn\] A message received from unknown worker connection'
+is-ignored '\[.*warn\] Unable to get filename'
+is-ignored '\[.*warn\] has no child, check its machine placed'
+is-ignored '\[error\] DBIx.*number of parameters must be between.*OpenQA/WebAPI/Controller/API/V1/Job.pm'
+is-ignored '\[error\] mkdir /var/lib/openqa/images/0bf/862/.thumbs: File exists at /usr/share/openqa/script/../lib/OpenQA/Schema/Result/Jobs.pm line 1227'
+
+done-testing
+
+# explicitly exit with $rc unless we are run by prove
+[[ -n $HARNESS_ACTIVE ]] || exit $rc
