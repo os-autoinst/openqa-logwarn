@@ -66,4 +66,16 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!error\].*DBIx.*number of parameters must be between.*OpenQA/WebAPI/Controller/API/V1/Job' \
     `# https://progress.opensuse.org/issues/53474` \
     '!error\].*File exists at.*Schema/Result/Jobs' \
+    `# https://progress.opensuse.org/issues/105909` \
+    '!warn\].*Ignoring invalid group \{"name":"123"\} when creating new job ' \
+    `# https://progress.opensuse.org/issues/105924` \
+    '!error\] Template was modified' \
+    `# https://progress.opensuse.org/issues/105921` \
+    '!\[error\].* Cannot read symbolic link .*/.run_last): No such file or directory' \
+    `# https://progress.opensuse.org/issues/105915` \
+    '!\[error\].* Needle file .*.json not found within /.*\.' \
+    `# https://progress.opensuse.org/issues/105903` \
+    '!\[error\].* Publishing .* failed: Connect timeout \([1-9][0-9]* attempts left\)' \
+    `# https://progress.opensuse.org/issues/105900` \
+    '!\[warn\].* Unable to wakeup scheduler: Request timeout' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
