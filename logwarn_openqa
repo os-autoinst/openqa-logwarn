@@ -78,4 +78,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[error\].* Publishing .* failed: Connect timeout \([1-9][0-9]* attempts left\)' \
     `# https://progress.opensuse.org/issues/105900` \
     '!\[warn\].* Unable to wakeup scheduler: Request timeout' \
+    `# https://progress.opensuse.org/issues/105918` \
+    '!\[warn\].* fatal: Invalid revision range .*\.\.' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
