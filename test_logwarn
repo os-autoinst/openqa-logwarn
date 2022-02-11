@@ -91,6 +91,7 @@ is-ignored '\[error\] DBIx.*number of parameters must be between.*OpenQA/WebAPI/
 is-ignored '\[error\] mkdir /var/lib/openqa/images/0bf/862/.thumbs: File exists at /usr/share/openqa/script/../lib/OpenQA/Schema/Result/Jobs.pm line 1227'
 is-ignored '\[warn\].*Ignoring invalid group {"name":"123"}'
 is-ignored '\[error\] Template was modified'
+is-ignored '\[error\].* DBIx::Class::Row::update\(\): Can.t update OpenQA::Schema::Result::JobLocks'
 is-ignored '\[error\].* Cannot read symbolic link .*/.run_last): No such file or directory'
 is-ignored '\[error\].* Needle file .*.json not found within /var/lib/openqa/share/tests/opensuse/products/opensuse/needles.'
 is-ignored '\[error\].* Publishing opensuse.openqa.job.restart failed: Connect timeout (9 attempts left)'
