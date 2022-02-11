@@ -1,4 +1,4 @@
-# openqa-logwarn [![Build Status](https://travis-ci.com/os-autoinst/openqa-logwarn.svg?branch=master)](https://travis-ci.com/os-autoinst/openqa-logwarn)
+# openqa-logwarn [![CI](https://github.com/os-autoinst/openqa-logwarn/actions/workflows/ci.yaml/badge.svg)](https://github.com/os-autoinst/openqa-logwarn/actions/workflows/ci.yaml)
 
 A logwarn wrapper with openQA log specific rules.
 
@@ -15,8 +15,8 @@ Feel free to add issues in github or send pull requests.
 
 ### Rules for commits
 
-* Every commit is checked by [Travis CI](https://travis-ci.com/) as soon as
-  you create a pull request but you *should* run `test_logwarn` locally,
+* Every commit is checked by [GitHubActions](https://docs.github.com/en/actions)
+  as soon as you create a pull request but you *should* run `test_logwarn` locally,
 
 * Make sure to add test reference data for new scenarios. TDD is advised :-)
 
