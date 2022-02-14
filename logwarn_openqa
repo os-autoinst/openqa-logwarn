@@ -46,7 +46,7 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     `# https://progress.opensuse.org/issues/21018` \
     '!warn\] Stopping worker .* immediately' \
     `# https://progress.opensuse.org/issues/106613` \
-    '!error\].* DBIx::Class::Row::update(): Can.t update OpenQA::Schema::Result::JobLocks=.* row not found' \
+    '!error\].* DBIx::Class::Row::update\(\): Can.t update OpenQA::Schema::Result::JobLocks=.* row not found' \
     `# https://progress.opensuse.org/issues/23536` \
     '!error\] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.' \
     `# https://progress.opensuse.org/issues/19674 ` \
