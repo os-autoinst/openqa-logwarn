@@ -84,4 +84,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[warn\].* fatal: Invalid revision range .*\.\.' \
     `# https://progress.opensuse.org/issues/106245` \
     '!\[error\] Testsuite ''.*'' is invalid' \
+    `# https://progress.opensuse.org/issues/105930` \
+    '!\[warn\] \[pid:[0-9]*\] $' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
