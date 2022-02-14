@@ -98,6 +98,7 @@ is-ignored '\[error\].* Publishing opensuse.openqa.job.restart failed: Connect t
 is-ignored '\[warn\].* Unable to wakeup scheduler: Request timeout'
 is-ignored '\[warn\].* fatal: Invalid revision range .*\.\.'
 is-ignored '\[error\] Testsuite .* is invalid'
+is-ignored '\[warn\] \[pid:[0-9]*\] $'
 
 done-testing
 
