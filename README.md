@@ -4,8 +4,13 @@ A logwarn wrapper with openQA log specific rules.
 
 ## Usage
 
-* Install logwarn and call `logwarn_openqa`. For testing call `test_logwarn`.
+* Install logwarn and call `logwarn_openqa`. By default it will read logs from
+  /var/log/openqa which is where openQA stores logs by default. You can pass
+  another path as the first argument.
 
+### Testing
+
+* For testing you can execute `test_logwarn` directly or `prove test_logwarn`.
 
 ## Contribute
 
@@ -16,7 +21,8 @@ Feel free to add issues in github or send pull requests.
 ### Rules for commits
 
 * Every commit is checked by [GitHubActions](https://docs.github.com/en/actions)
-  as soon as you create a pull request but you *should* run `test_logwarn` locally,
+  as soon as you create a pull request but you *should* test locally, see the
+  [Usage](#testing) section for details.
 
 * Make sure to add test reference data for new scenarios. TDD is advised :-)
 
