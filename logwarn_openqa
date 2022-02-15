@@ -69,7 +69,7 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     `# https://progress.opensuse.org/issues/53474` \
     '!error\].*File exists at.*Schema/Result/Jobs' \
     `# https://progress.opensuse.org/issues/105909` \
-    '!warn\].*Ignoring invalid group \{"name":"[0-9]+"\} when creating new job ' \
+    '!warn\].*Ignoring invalid group .* when creating new job ' \
     `# https://progress.opensuse.org/issues/105924` \
     '!error\] Template was modified' \
     `# https://progress.opensuse.org/issues/105921` \
