@@ -86,4 +86,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[error\] Testsuite ''.*'' is invalid' \
     `# https://progress.opensuse.org/issues/105930` \
     '!\[warn\] \[pid:[0-9]*\] $' \
+    `# https://progress.opensuse.org/issues/106756` \
+    '!\[error\].*cmd returned 32768$' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
