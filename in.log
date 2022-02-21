@@ -84,3 +84,4 @@ more output that is not properly prefixed
 [2022-02-08T10:07:19.361122Z] [error] Testsuite 'autofs_client' is invalid
 [2022-02-01T00:18:19.109868Z] [warn] [pid:6059] 
 [2022-02-14T09:26:31.328344Z] [error] [pid:23389] cmd returned 32768
+[2022-02-12T04:12:56.228360Z] [error] Worker 12345 has no heartbeat (400 seconds), restarting
