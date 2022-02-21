@@ -100,6 +100,7 @@ is-ignored '\[warn\].* fatal: Invalid revision range .*\.\.'
 is-ignored '\[error\] Testsuite .* is invalid'
 is-ignored '\[warn\] \[pid:[0-9]*\] $'
 is-ignored '\[error\].*cmd returned 32768$'
+is-ignored '\[error\] Worker [0-9]* has no heartbeat .[0-9]* seconds., restarting'
 
 done-testing
 
