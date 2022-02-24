@@ -81,7 +81,6 @@ more output that is not properly prefixed
 [2022-02-01T02:30:12.489168Z] [error] [pid:4418] Publishing opensuse.openqa.job.restart failed: Connect timeout (9 attempts left)
 [2022-02-01T02:30:07.684500Z] [warn] [pid:5085] Unable to wakeup scheduler: Request timeout
 [2022-02-08T08:53:07.105395Z] [warn] [pid:16745] fatal: Invalid revision range cc2f36979a48111386b4a94cc7a5cbe0ba1aeaf8..97454f5f4aa4291da679136b2b987624acd85adc
-[2022-02-08T10:07:19.361122Z] [error] Testsuite 'autofs_client' is invalid
 [2022-02-01T00:18:19.109868Z] [warn] [pid:6059] 
 [2022-02-14T09:26:31.328344Z] [error] [pid:23389] cmd returned 32768
 [2022-02-12T04:12:56.228360Z] [error] Worker 12345 has no heartbeat (400 seconds), restarting
