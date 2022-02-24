@@ -70,8 +70,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!error\].*File exists at.*Schema/Result/Jobs' \
     `# https://progress.opensuse.org/issues/105909` \
     '!warn\].*Ignoring invalid group .* when creating new job ' \
-    `# https://progress.opensuse.org/issues/105924` \
-    '!error\] Template was modified' \
     `# https://progress.opensuse.org/issues/105921` \
     '!\[error\].* Cannot read symbolic link .*/.run_last): No such file or directory' \
     `# https://progress.opensuse.org/issues/105915` \
