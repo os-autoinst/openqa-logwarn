@@ -83,7 +83,7 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     `# https://progress.opensuse.org/issues/105930` \
     '!\[warn\] \[pid:[0-9]*\] $' \
     `# https://progress.opensuse.org/issues/106756` \
-    '!\[error\].*cmd returned 32768$' \
+    '!\[error\].*cmd returned [0-9]*$' \
     `# https://progress.opensuse.org/issues/106759` \
     '!\[error\] Worker [0-9]* has no heartbeat .[0-9]* seconds., restarting' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
