@@ -86,4 +86,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[error\].*cmd returned [0-9]*$' \
     `# https://progress.opensuse.org/issues/106759` \
     '!\[error\] Worker [0-9]* has no heartbeat .[0-9]* seconds., restarting' \
+    `# https://progress.opensuse.org/issues/107719` \
+    '!\[error\] Could not render a response at' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
