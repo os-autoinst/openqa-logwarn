@@ -83,3 +83,4 @@ more output that is not properly prefixed
 [2022-02-01T00:18:19.109868Z] [warn] [pid:6059] 
 [2022-02-14T09:26:31.328344Z] [error] [pid:23389] cmd returned 32768
 [2022-02-12T04:12:56.228360Z] [error] Worker 12345 has no heartbeat (400 seconds), restarting
+[2022-04-25T13:52:16.813172Z] [warn] [pid:25816] /var/lib/openqa/share/tests/obs/needles is not a git directory
