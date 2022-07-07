@@ -3,7 +3,7 @@ set -o pipefail
 
 HOST=$(hostname --long)
 SUBJECT="OpenQA logreport for $HOST"
-SENDER="openqa-monitor@$HOST"
+SENDER="${SENDER:-"openqa-monitor@$HOST"}"
 REPORTTO="${REPORTTO:-"nsinger@suse.de"}"
 COLUMN_LIMIT="${COLUMN_LIMIT:-1000}"
 LINE_LIMIT="${LINE_LIMIT:-1000}"
