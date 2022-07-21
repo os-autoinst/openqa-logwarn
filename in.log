@@ -80,9 +80,3 @@ more output that is not properly prefixed
 [2022-02-08T08:53:07.105395Z] [warn] [pid:16745] fatal: Invalid revision range cc2f36979a48111386b4a94cc7a5cbe0ba1aeaf8..97454f5f4aa4291da679136b2b987624acd85adc
 [2022-02-01T00:18:19.109868Z] [warn] [pid:6059] 
 [2022-02-14T09:26:31.328344Z] [error] [pid:23389] cmd returned 32768
-[2022-07-20T07:14:49.814152Z] [warn] [pid:12503] fatal: ambiguous argument '(unreadable git hash)..(unreadable git hash)': unknown revision or path not in the working tree.
-Use '--' to separate paths from revisions, like this:
-'git <command> [<revision>...] -- [<file>...]'
-[2022-07-20T09:42:31.937640Z] [warn] [pid:24295] fatal: ambiguous argument '(unreadable git hash)..e737020f1b7d8ff3f6cc3bbc009f83a4a09862cb': unknown revision or path not in the working tree.
-Use '--' to separate paths from revisions, like this:
-'git <command> [<revision>...] -- [<file>...]'

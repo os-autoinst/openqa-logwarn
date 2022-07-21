@@ -78,8 +78,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[warn\].* Unable to wakeup scheduler: Request timeout' \
     `# https://progress.opensuse.org/issues/105918` \
     '!\[warn\].* fatal: Invalid revision range .*\.\.' \
-    `# https://progress.opensuse.org/issues/113030` \
-    '!\[warn\].* fatal: ambiguous argument .\(unreadable git hash\).' \
     `# https://progress.opensuse.org/issues/105930` \
     '!\[warn\] \[pid:[0-9]*\] $' \
     `# https://progress.opensuse.org/issues/106756` \
