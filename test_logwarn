@@ -97,9 +97,7 @@ is-ignored '\[warn\].* Unable to wakeup scheduler: Request timeout'
 is-ignored '\[warn\].* fatal: Invalid revision range .*\.\.'
 is-ignored '\[warn\] \[pid:[0-9]*\] $'
 is-ignored '\[error\].*cmd returned 32768$'
-# FIXME: the following checks pass regardless of wether this is being ignored or not
-is-ignored '\[error\].*fatal: ambiguous argument ''(unreadable git hash)\.\.(unreadable git hash)'''
-is-ignored '\[error\].*fatal: ambiguous argument ''(unreadable git hash)\.\.e737020f1b7d8ff3f6cc3bbc009f83a4a09862cb'''
+is-ignored '\[warn\].*fatal: ambiguous argument .*unreadable git hash.'
 done-testing
 
 # explicitly exit with $rc unless we are run by prove
