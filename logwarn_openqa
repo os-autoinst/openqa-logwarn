@@ -82,4 +82,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[warn\] \[pid:[0-9]*\] $' \
     `# https://progress.opensuse.org/issues/106756` \
     '!\[error\].*cmd returned [0-9]*$' \
+    `# https://progress.opensuse.org/issues/125459` \
+    '!\[error\].*naive_verify_failed_return' \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' $@
