@@ -1,7 +1,7 @@
 #!/bin/sh -e
 file="${file:-"${1:-"/var/log/openqa"}"}"
 options="${options:-""}"
-logwarn="${logwarn:-$(which logwarn)}"
+logwarn="${logwarn:-$(command -v logwarn)}"
 $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     `# ignore known warnings mentioned in https://progress.opensuse.org/issues/13952` \
     '!got a status update but has no worker' \
