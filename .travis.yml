@@ -1,7 +1,0 @@
-sudo: required
-before_script:
- - wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/logwarn/logwarn-1.0.11.tar.gz
- - tar -xzvf logwarn-1.0.11.tar.gz
- - pushd logwarn-1.0.11 && ./configure --prefix=/usr && make && sudo make install && popd
-script: ./test_logwarn
-
