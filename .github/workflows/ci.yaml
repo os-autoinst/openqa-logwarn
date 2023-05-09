@@ -11,15 +11,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    container:
+      image: registry.opensuse.org/home/okurz/container/containers/tumbleweed:logwarn
     steps:
       - uses: actions/checkout@v2
 
-      - run: |
-          wget https://github.com/archiecobbs/logwarn/archive/refs/tags/1.0.16.tar.gz
-          tar xf 1.0.16.tar.gz
-          cd logwarn-1.0.16
-          ./autogen.sh && ./configure --prefix=/tmp/logwarn && make && make install
-
-      - run: |
-          PATH=/tmp/logwarn/bin:$PATH prove -v ./test_logwarn
+      - name: Run unit tests
+        run: ./test_logwarn

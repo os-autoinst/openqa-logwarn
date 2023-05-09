@@ -4,7 +4,9 @@ A logwarn wrapper with openQA log specific rules.
 
 ## Usage
 
-* Install logwarn and call `logwarn_openqa`. By default it will read logs from
+* Install logwarn via `sudo zypper in logwarn` if you're on openSUSE
+  Tumbleweed or from https://github.com/archiecobbs/logwarn otherwise.
+* Call `logwarn_openqa`. By default it will read logs from
   /var/log/openqa which is where openQA stores logs by default. You can pass
   another path as the first argument.
 
