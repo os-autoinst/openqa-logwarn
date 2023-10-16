@@ -9,10 +9,13 @@ A logwarn wrapper with openQA log specific rules.
 * Call `logwarn_openqa`. By default it will read logs from
   /var/log/openqa which is where openQA stores logs by default. You can pass
   another path as the first argument.
+* Extend the list of known warnings by adding arguments to the `logwarn`
+  call at the top of `logwarn_openqa`.
 
 ### Testing
 
 * For testing you can execute `test_logwarn` directly or `prove test_logwarn`.
+* You can add new cases by extending `in.log` as well as `test_logwarn`.
 
 ## Contribute
 
