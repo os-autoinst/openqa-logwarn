@@ -84,6 +84,7 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[error\].*cmd returned [0-9]*$' \
     `# https://progress.opensuse.org/issues/125459` \
     '!\[error\].*naive_verify_failed_return' \
-    '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' \
     `# https://progress.opensuse.org/issues/138536` \
-    '!\[error\].*Worker [0-9]+ has no heartbeat.*' $@
+    '!\[error\].*Worker [0-9]+ has no heartbeat.*' \
+    `# this line needs to be the last` \
+    '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' \ $@
