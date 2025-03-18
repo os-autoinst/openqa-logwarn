@@ -81,3 +81,4 @@ more output that is not properly prefixed
 [2022-02-01T00:18:19.109868Z] [warn] [pid:6059] 
 [2022-02-14T09:26:31.328344Z] [error] [pid:23389] cmd returned 32768
 [2023-10-25T12:14:44.745934Z] [error] Worker 17519 has no heartbeat (900 seconds), restarting (see FAQ for more)
+[2025-03-16T06:47:19.984601Z] [error] [pid:4360] Publishing opensuse.openqa.comment.create failed: Can't connect: System error (event ID: 726556, job ID: 4926756, 9 attempts left)
