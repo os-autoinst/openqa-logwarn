@@ -1,6 +1,7 @@
 #!/bin/bash -e
 set -o pipefail
 
+in_log=$(cat in.log)
 out=$(env options="-f /dev/null -z" file=in.log sh -ex ./logwarn_openqa) || true
 declare -i testnum=0
 declare -i rc=0
@@ -18,6 +19,16 @@ done-testing() {
 }
 is-ignored() {
     local string=$1 label=$2
+    if ! echo "$in_log" | grep -q "$string"; then
+        fail "[reverse-check] >>$string<< - make sure the string you want to ignore is in in.log"
+        echo "# ====================================================================="
+        echo "# Explanation: is-ignored() is ensuring that logwarn will filter the"
+        echo "# given string."
+        echo "# For that it first runs a test to check if a matching line is actually"
+        echo "# contained in 'in.log'"
+        echo "# ====================================================================="
+        return
+    fi
     label=${label:-"String >>$string<< is ignored"}
     if echo "$out" | grep -q "$string"; then
         fail "$label"
