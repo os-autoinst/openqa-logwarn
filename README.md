@@ -17,6 +17,25 @@ A logwarn wrapper with openQA log specific rules.
 * For testing you can execute `test_logwarn` directly or `prove test_logwarn`.
 * You can add new cases by extending `in.log` as well as `test_logwarn`.
 
+#### Adding a new ignore rule
+
+* First, make sure the test succeeds
+* Add an example of the line to ignore to `in.log`, e.g.
+
+  `[error] [pid:123] Connect timeout: FooBar.publish failed, retrying 7 more times`
+
+  The unique thing about this is probably the `FooBar.publish`.
+* Add a test in `test_logwarn`:
+
+  `is-ignored 'FooBar.publish'`
+
+  This is kept short on purpose. The test is supposed to ensure that the line
+  containing `FooBar.publish` is not appearing in the filtered output. As soon
+  as you try to add the whole line there you might make mistakes and the test
+  will always succeed because of this.
+* Now run the test. It should fail.
+* Only as the last step add the rule to `logwarn_openqa` to make the test pass
+
 ## Contribute
 
 This project lives in https://github.com/os-autoinst/openqa-logwarn
