@@ -74,6 +74,8 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[error\].* Needle file .*.json not found within /.*\.' \
     `# https://progress.opensuse.org/issues/105903` \
     '!\[error\].* Publishing .* failed: Connect timeout \([1-9][0-9]* attempts left\)' \
+    `# https://progress.opensuse.org/issues/178147` \
+    '!\[error\].* Publishing .* failed: Can.t connect.*attempts left' \
     `# https://progress.opensuse.org/issues/105900` \
     '!\[warn\].* Unable to wakeup scheduler: Request timeout' \
     `# https://progress.opensuse.org/issues/105918` \
@@ -86,7 +88,5 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[error\].*naive_verify_failed_return' \
     `# https://progress.opensuse.org/issues/138536` \
     '!\[error\].*Worker [0-9]+ has no heartbeat.*' \
-    `# https://progress.opensuse.org/issues/178147` \
-    '!\[error\] .* Publishing opensuse.openqa.comment.create failed: Can.t connect.*attempts left' \
     `# this line needs to be the last` \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' \ $@
