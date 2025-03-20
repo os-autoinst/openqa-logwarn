@@ -99,7 +99,7 @@ is-ignored '\[error\] mkdir /var/lib/openqa/images/0bf/862/.thumbs: File exists 
 is-ignored '\[error\].* DBIx::Class::Row::update(): Can.t update OpenQA::Schema::Result::JobLocks'
 is-ignored '\[error\].* Cannot read symbolic link .*/.run_last): No such file or directory'
 is-ignored '\[error\].* Needle file .*.json not found within /var/lib/openqa/share/tests/opensuse/products/opensuse/needles.'
-is-ignored '\[error\].* Publishing opensuse.openqa.job.restart failed: Connect timeout (9 attempts left)'
+is-ignored '\[error\].* Publishing opensuse.openqa.job.restart failed: Connect timeout'
 is-ignored 'Publishing opensuse.openqa.comment.create failed: Can.t connect'
 is-ignored '\[warn\].* Unable to wakeup scheduler: Request timeout'
 is-ignored '\[warn\].* fatal: Invalid revision range .*\.\.'
