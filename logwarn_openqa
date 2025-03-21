@@ -72,8 +72,6 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[error\].* Cannot read symbolic link .*/.run_last): No such file or directory' \
     `# https://progress.opensuse.org/issues/105915` \
     '!\[error\].* Needle file .*.json not found within /.*\.' \
-    `# https://progress.opensuse.org/issues/105903` \
-    '!\[error\].* Publishing .* failed: Connect timeout .* attempts left' \
     `# https://progress.opensuse.org/issues/105900` \
     '!\[warn\].* Unable to wakeup scheduler: Request timeout' \
     `# https://progress.opensuse.org/issues/105918` \
