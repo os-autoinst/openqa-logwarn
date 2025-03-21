@@ -75,8 +75,6 @@ more output that is not properly prefixed
 [2019-06-21T23:53:29.0150 UTC] [error] mkdir /var/lib/openqa/images/0bf/862/.thumbs: File exists at /usr/share/openqa/script/../lib/OpenQA/Schema/Result/Jobs.pm line 1227.
 [2022-02-02T09:45:18.016062Z] [error] [pid:10871] Cannot read symbolic link (/opt/openqa-trigger-from-obs/openSUSE:Factory:ARM:ToTest/microos-qcow/.run_last): No such file or directory
 [2022-02-01T14:30:44.394926Z] [error] [pid:14446] Needle file root-console-bpfilter-msg-poo44156-20190122.json not found within /var/lib/openqa/share/tests/opensuse/products/opensuse/needles.
-[2025-03-20T10:50:45.518421Z] [error] [pid:4809] Publishing opensuse.openqa.job.restart failed: Connect timeout (event ID: 4938320, job ID: none, 9 attempts left)
-[2022-02-01T02:30:12.489168Z] [error] [pid:4418] Publishing opensuse.openqa.job.restart failed: Connect timeout (9 attempts left)
 [2022-02-01T02:30:07.684500Z] [warn] [pid:5085] Unable to wakeup scheduler: Request timeout
 [2022-02-08T08:53:07.105395Z] [warn] [pid:16745] fatal: Invalid revision range cc2f36979a48111386b4a94cc7a5cbe0ba1aeaf8..97454f5f4aa4291da679136b2b987624acd85adc
 [2022-02-01T00:18:19.109868Z] [warn] [pid:6059] 
