@@ -80,4 +80,3 @@ more output that is not properly prefixed
 [2022-02-01T00:18:19.109868Z] [warn] [pid:6059] 
 [2022-02-14T09:26:31.328344Z] [error] [pid:23389] cmd returned 32768
 [2023-10-25T12:14:44.745934Z] [error] Worker 17519 has no heartbeat (900 seconds), restarting (see FAQ for more)
-[2025-06-19T14:33:06.404770Z] [error] Transaction already destroyed at /usr/lib/perl5/vendor_perl/5.26.1/Mojolicious/Renderer.pm line 31.
