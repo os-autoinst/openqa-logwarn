@@ -1,8 +1,10 @@
 #!/bin/sh -e
 file="${file:-"${1:-"/var/log/openqa"}"}"
 options="${options:-""}"
+# Mainly for [-T num/secs]. If it is set it applies to all subsequent patterns
+extra_options="${extra_options:-""}"
 logwarn="${logwarn:-$(command -v logwarn)}"
-$logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
+$logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} ${extra_options} \
     `# ignore known warnings mentioned in https://progress.opensuse.org/issues/13952` \
     '!got a status update but has no worker' \
     '!got an artefact but has no worker' \
