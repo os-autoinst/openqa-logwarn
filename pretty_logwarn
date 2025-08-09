@@ -19,8 +19,11 @@ git rebase --quiet origin/master
 # limit the length of each line to prevent overly long lines killing even
 # email clients, e.g. database exceptions list every single table index.
 # also truncate after too many lines
-WARNINGS=$(./logwarn_openqa "$1" | cut -c -$COLUMN_LIMIT | head -n $LINE_LIMIT || true)
+WARNINGS=$(./logwarn_openqa "$1" || true)
+OUTPUT=$(echo "$WARNINGS" | cut -c -$COLUMN_LIMIT | head -n $LINE_LIMIT || true)
+LINENUM=$(echo "$WARNINGS" | wc -l)
 
-if [ ! -z "$WARNINGS" ]; then
-    echo "$WARNINGS" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
+if [ ! -z "$OUTPUT" ]; then
+    echo "Found $LINENUM lines"
+    echo "$OUTPUT" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
 fi
