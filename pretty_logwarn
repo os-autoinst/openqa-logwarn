@@ -24,6 +24,5 @@ OUTPUT=$(echo "$WARNINGS" | cut -c -$COLUMN_LIMIT | head -n $LINE_LIMIT || true)
 LINENUM=$(echo "$WARNINGS" | wc -l)
 
 if [ ! -z "$OUTPUT" ]; then
-    echo "Found $LINENUM lines"
-    echo "$OUTPUT" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
+    echo "Found $LINENUM lines"$'\n'"$OUTPUT" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
 fi
