@@ -86,5 +86,7 @@ $logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
     '!\[error\].*Worker [0-9]+ has no heartbeat.*' \
     `# https://progress.opensuse.org/issues/183302` \
     '!\[error\].*FATAL:.*the database system is shutting down.*' \
+    `# https://progress.opensuse.org/issues/193897` \
+    '!\[error\].*invalid input syntax for type bigint' \
     `# this line needs to be the last` \
     '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' \ $@
