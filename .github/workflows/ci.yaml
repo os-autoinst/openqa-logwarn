@@ -14,7 +14,7 @@ jobs:
     container:
       image: registry.opensuse.org/home/okurz/container/containers/tumbleweed:logwarn
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
 
       - name: Run unit tests
         run: ./test_logwarn
