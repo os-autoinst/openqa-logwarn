@@ -10,6 +10,8 @@ on:
 
 jobs:
   test:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     container:
       image: registry.opensuse.org/home/okurz/container/containers/tumbleweed:logwarn
