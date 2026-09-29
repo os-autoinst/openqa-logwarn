@@ -1,0 +1,6 @@
+#!/bin/bash
+
+journalctl --cursor-file=/var/lib/logwarn/openqa-gru -u openqa-gru | grep \
+    -e 'ERROR:' \
+    -e 'WARNING:' \
+    || true
