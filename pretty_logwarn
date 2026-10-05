@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 set -o pipefail
 
 HOST=$(hostname --long)
@@ -10,7 +10,7 @@ LINE_LIMIT="${LINE_LIMIT:-1000}"
 
 # automatically update the script while preserving maybe added hotfixes
 
-pushd $(dirname $0) > /dev/null
+pushd "$(dirname "$0")" > /dev/null
 # git pull --quiet --rebase origin master # This sometimes fails with "cannot rebase onto multiple branches".
 git fetch --quiet --all --prune
 git rebase --quiet origin/master
@@ -24,5 +24,6 @@ OUTPUT=$(echo "$WARNINGS" | cut -c -$COLUMN_LIMIT | head -n $LINE_LIMIT || true)
 LINENUM=$(echo "$WARNINGS" | wc -l)
 
 if [ ! -z "$OUTPUT" ]; then
-    echo "Found $LINENUM lines via $1"$'\n'"$OUTPUT" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
+    suffix="Logs reported by script call: \"./$1 $2\""$'\nFor silences modify this script and add an ignore regex at:\nhttps://github.com/os-autoinst/openqa-logwarn/'
+    echo "Found $LINENUM lines via $1"$'\n'"$OUTPUT"$'\n\n-- \n'"$suffix" | mail -r "$SENDER" -s "$SUBJECT" "$REPORTTO"
 fi
