@@ -14,24 +14,18 @@ A logwarn wrapper with openQA log specific rules.
 
 ### Testing
 
-* For testing you can execute `test_logwarn` directly or `prove test_logwarn`.
-* You can add new cases by extending `in.log` as well as `test_logwarn`.
+For testing you can execute `make test`. For verbose mode use `V=1`
+and to run only a certain test file use e.g. `TESTS=t/01-test_logwarn_openqa`.
 
 #### Adding a new ignore rule
 
-For scripts *other* than `logwarn_openqa` simply update the script itself.
-Make sure to test if the `grep` command really filters out the desired line from
-the log. Also keep in mind that we are using perl-style regexes.
-
-For `logwarn_openqa` do this:
-
 * First, make sure the test succeeds
-* Add an example of the line to ignore to `in.log`, e.g.
+* Add an example of the line to ignore to `t/data/….log`, e.g.
 
   `[error] [pid:123] Connect timeout: FooBar.publish failed, retrying 7 more times`
 
   The unique thing about this is probably the `FooBar.publish`.
-* Add a test in `test_logwarn`:
+* Add a test in `t/01-test_logwarn_openqa`:
 
   `is-ignored 'FooBar.publish'`
 
