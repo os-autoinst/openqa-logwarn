@@ -1,90 +1,90 @@
 #!/bin/bash
 
-cat /dev/stdin \
-    `# The following lines contain grep calls to ignore known issues` \
+cat /dev/stdin | rg --engine pcre2 --invert-match \
+    `# The following lines contain regexes of log lines to ignore known issues` \
     `# ignore known warnings mentioned in https://progress.opensuse.org/issues/13952` \
-    | grep -vP 'got a status update but has no worker' \
-    | grep -vP 'got an artefact but has no worker' \
+    -e 'got a status update but has no worker' \
+    -e 'got an artefact but has no worker' \
     `# ignore broken registered assets https://progress.opensuse.org/issues/13938` \
-    | grep -vP 'error\] Registering asset iso/.*:' \
-    | grep -vP 'warn\] asset name .* invalid or does not exist' \
-    | grep -vP 'is not in any job group, DELETE from assets where' \
-    | grep -vP 'Registering asset' \
+    -e 'error\] Registering asset iso/.*:' \
+    -e 'warn\] asset name .* invalid or does not exist' \
+    -e 'is not in any job group, DELETE from assets where' \
+    -e 'Registering asset' \
     `# https://progress.opensuse.org/issues/14904` \
-    | grep -vP 'Can.*t call method .*DISTRI.* on an undefined value' \
+    -e 'Can.*t call method .*DISTRI.* on an undefined value' \
     `# https://progress.opensuse.org/issues/14906` \
-    | grep -vP 'Can.*t locate object method .*start_range.* via package .*Mojolicious::Plugin::AssetPack::Asset.*' \
+    -e 'Can.*t locate object method .*start_range.* via package .*Mojolicious::Plugin::AssetPack::Asset.*' \
     `# https://progress.opensuse.org/issues/15202` \
-    | grep -vP 'is not in any job group, will delete in.*' \
+    -e 'is not in any job group, will delete in.*' \
     `# https://progress.opensuse.org/issues/17600` \
-    | grep -vP 'duplicate key value violates unique constraint "job_templates_product_id_machine_id_test_suite_id"' \
+    -e 'duplicate key value violates unique constraint "job_templates_product_id_machine_id_test_suite_id"' \
     `# https://progress.opensuse.org/issues/17652` \
-    | grep -vP 'Not an OpenID message' \
+    -e 'Not an OpenID message' \
     `# https://progress.opensuse.org/issues/17762` \
-    | grep -vP '.*AMQP.*Connect timeout.*' \
+    -e '.*AMQP.*Connect timeout.*' \
     `# https://progress.opensuse.org/issues/17708` \
-    | grep -vP 'dead job [0-9]+ aborted and duplicated [0-9]+' \
+    -e 'dead job [0-9]+ aborted and duplicated [0-9]+' \
     `# https://progress.opensuse.org/issues/18048` \
-    | grep -vP 'warn\] AMQP connection closed' \
+    -e 'warn\] AMQP connection closed' \
     `# https://progress.opensuse.org/issues/18076 ` \
-    | grep -vP 'warn\] no products found, retrying version wildcard' \
+    -e 'warn\] no products found, retrying version wildcard' \
     `# https://progress.opensuse.org/issues/18162 ` \
-    | grep -vP 'warn\] START_AFTER_TEST=.* not found - check for typos and dependency cycles' \
+    -e 'warn\] START_AFTER_TEST=.* not found - check for typos and dependency cycles' \
     `# https://progress.opensuse.org/issues/19424 ` \
-    | grep -vP 'Worker not found for given connection during connection close' \
+    -e 'Worker not found for given connection during connection close' \
     `# https://progress.opensuse.org/issues/19674 ` \
-    | grep -vP 'warn\] AMQP connection error: SSL connect attempt failed with unknown error' \
+    -e 'warn\] AMQP connection error: SSL connect attempt failed with unknown error' \
     `# https://progress.opensuse.org/issues/19730` \
-    | grep -vP 'warn\] can.t remove.*png' \
+    -e 'warn\] can.t remove.*png' \
     `# https://progress.opensuse.org/issues/19732` \
-    | grep -vP 'scheduler:warn\] .* wants to grab a new job - killing the old one.*' \
+    -e 'scheduler:warn\] .* wants to grab a new job - killing the old one.*' \
     `# https://progress.opensuse.org/issues/20218` \
-    | grep -vP 'error\] Failed to login: OpenID provider returned invalid data\. Please retry again' \
+    -e 'error\] Failed to login: OpenID provider returned invalid data\. Please retry again' \
     `# https://progress.opensuse.org/issues/21836` \
-    | grep -vP 'websockets:warn\] A message received from unknown worker connection' \
+    -e 'websockets:warn\] A message received from unknown worker connection' \
     `# https://progress.opensuse.org/issues/21018` \
-    | grep -vP 'warn\] Stopping worker .* immediately' \
+    -e 'warn\] Stopping worker .* immediately' \
     `# https://progress.opensuse.org/issues/106613` \
-    | grep -vP 'error\].* DBIx::Class::Row::update\(\): Can.t update OpenQA::Schema::Result::JobLocks=.* row not found' \
+    -e 'error\].* DBIx::Class::Row::update\(\): Can.t update OpenQA::Schema::Result::JobLocks=.* row not found' \
     `# https://progress.opensuse.org/issues/23536` \
-    | grep -vP 'error\] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.' \
+    -e 'error\] org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.' \
     `# https://progress.opensuse.org/issues/19674 ` \
-    | grep -vP 'warn\] AMQP connection error: No route to host' \
+    -e 'warn\] AMQP connection error: No route to host' \
     `# https://progress.opensuse.org/issues/29289` \
-    | grep -vP 'warn\].*\/needles\/.*: No such file or directory' \
-    | grep -vP 'error] Could not parse needle:.*' \
+    -e 'warn\].*\/needles\/.*: No such file or directory' \
+    -e 'error] Could not parse needle:.*' \
     `# https://progress.opensuse.org/issues/29478` \
-    | grep -vP 'error\] Global symbol.*api_description.*not_found\.html\.ep' \
+    -e 'error\] Global symbol.*api_description.*not_found\.html\.ep' \
     `# https://progress.opensuse.org/issues/29481` \
-    | grep -vP ':error\] .*DBI Exception.*ERROR:  invalid input syntax for integer.* at .*Controller/Test.pm' \
+    -e ':error\] .*DBI Exception.*ERROR:  invalid input syntax for integer.* at .*Controller/Test.pm' \
     `# https://progress.opensuse.org/issues/40007` \
-    | grep -vP 'warn\].*A message received from unknown worker connection' \
+    -e 'warn\].*A message received from unknown worker connection' \
     `# https://progress.opensuse.org/issues/53399` \
-    | grep -vP 'warn\].*Unable to get filename from .* Ignoring OPENQA_HOST_URL' \
+    -e 'warn\].*Unable to get filename from .* Ignoring OPENQA_HOST_URL' \
     `# https://progress.opensuse.org/issues/53405` \
-    | grep -vP 'warn\].*has no child, check its machine placed or dependency setting typos' \
+    -e 'warn\].*has no child, check its machine placed or dependency setting typos' \
     `# https://progress.opensuse.org/issues/53435` \
-    | grep -vP 'error\].*DBIx.*number of parameters must be between.*OpenQA/WebAPI/Controller/API/V1/Job' \
+    -e 'error\].*DBIx.*number of parameters must be between.*OpenQA/WebAPI/Controller/API/V1/Job' \
     `# https://progress.opensuse.org/issues/53474` \
-    | grep -vP 'error\].*File exists at.*Schema/Result/Jobs' \
+    -e 'error\].*File exists at.*Schema/Result/Jobs' \
     `# https://progress.opensuse.org/issues/105921` \
-    | grep -vP '\[error\].* Cannot read symbolic link .*/.run_last\): No such file or directory' \
+    -e '\[error\].* Cannot read symbolic link .*/.run_last\): No such file or directory' \
     `# https://progress.opensuse.org/issues/105915` \
-    | grep -vP '\[error\].* Needle file .*.json not found within /.*\.' \
+    -e '\[error\].* Needle file .*.json not found within /.*\.' \
     `# https://progress.opensuse.org/issues/105900` \
-    | grep -vP '\[warn\].* Unable to wakeup scheduler: Request timeout' \
+    -e '\[warn\].* Unable to wakeup scheduler: Request timeout' \
     `# https://progress.opensuse.org/issues/105918` \
-    | grep -vP '\[warn\].* fatal: Invalid revision range .*\.\.' \
+    -e '\[warn\].* fatal: Invalid revision range .*\.\.' \
     `# https://progress.opensuse.org/issues/105930` \
-    | grep -vP '\[warn\] \[pid:[0-9]*\] $' \
+    -e '\[warn\] \[pid:[0-9]*\] $' \
     `# https://progress.opensuse.org/issues/106756` \
-    | grep -vP '\[error\].*cmd returned [0-9]*$' \
+    -e '\[error\].*cmd returned [0-9]*$' \
     `# https://progress.opensuse.org/issues/125459` \
-    | grep -vP '\[error\].*naive_verify_failed_return' \
+    -e '\[error\].*naive_verify_failed_return' \
     `# https://progress.opensuse.org/issues/138536` \
-    | grep -vP '\[error\].*Worker [0-9]+ has no heartbeat.*' \
+    -e '\[error\].*Worker [0-9]+ has no heartbeat.*' \
     `# https://progress.opensuse.org/issues/183302` \
-    | grep -vP '\[error\].*FATAL:.*the database system is shutting down.*' \
+    -e '\[error\].*FATAL:.*the database system is shutting down.*' \
     `# https://progress.opensuse.org/issues/193897` \
-    | grep -vP '\[error\].*invalid input syntax for type bigint' \
+    -e '\[error\].*invalid input syntax for type bigint' \
     || true
