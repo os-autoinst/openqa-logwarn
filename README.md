@@ -19,6 +19,12 @@ A logwarn wrapper with openQA log specific rules.
 
 #### Adding a new ignore rule
 
+For scripts *other* than `logwarn_openqa` simply update the script itself.
+Make sure to test if the `grep` command really filters out the desired line from
+the log. Also keep in mind that we are using perl-style regexes.
+
+For `logwarn_openqa` do this:
+
 * First, make sure the test succeeds
 * Add an example of the line to ignore to `in.log`, e.g.
 
