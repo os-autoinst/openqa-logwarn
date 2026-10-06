@@ -1,6 +1,11 @@
 #!/bin/bash -e
 set -o pipefail
 
+if ! logwarn -v &>/dev/null; then
+  echo "logwarn needs to be installed"
+  exit 1
+fi
+
 in_log=$(cat in.log)
 out=$(env options="-f /dev/null -z" file=in.log sh -ex ./logwarn_openqa) || true
 declare -i testnum=0
