@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# This script does the same as logwarn_openqa
+# but fetches the logs from the journal
+
+journalctl --cursor-file=/var/lib/logwarn/openqa-webui -u openqa-webui \
+    | grep -P '\[.*:?(warn|error)\]' | grep -vP '!\[.*:?(debug|info)\]' \
+    `# Maintain the list of ignored log messages` \
+    `# in ./logwarn_openqa_ignore and NOT here` \
+    | ./logwarn_openqa_ignore

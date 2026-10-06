@@ -40,7 +40,7 @@ For `logwarn_openqa` do this:
   as you try to add the whole line there you might make mistakes and the test
   will always succeed because of this.
 * Now run the test. It should fail.
-* Only as the last step add the rule to `logwarn_openqa` to make the test pass
+* Only as the last step add the rule to `logwarn_openqa_ignore` to make the test pass
 
 ## Contribute
 

@@ -1,10 +1,8 @@
 #!/bin/bash
 
 journalctl --cursor-file=/var/lib/logwarn/openqa-gru -u openqa-gru \
-    | grep \
-        -e 'ERROR:' \
-        -e 'WARNING:' \
-    | grep --invert-match --perl-regexp \
-        `# https://progress.opensuse.org/issues/207957` \
-        -e '(LLM API|openqa-llm-investigate failed)' \
+    | grep -e 'ERROR:' -e 'WARNING:' \
+    `# The following lines contain grep calls to ignore known issues` \
+    `# https://progress.opensuse.org/issues/207957` \
+    | grep -vP '(LLM API|openqa-llm-investigate failed)' \
     || true
