@@ -4,7 +4,8 @@
 # but fetches the logs from the journal
 
 journalctl --cursor-file=/var/lib/logwarn/openqa-webui -u openqa-webui \
-    | grep -P '\[.*:?(warn|error)\]' | grep -vP '!\[.*:?(debug|info)\]' \
+    | rg --engine pcre2 -e '\[.*:?(warn|error)\]' \
+    | rg --engine pcre2 -e '\[.*:?(debug|info)\]' -v \
     `# Maintain the list of ignored log messages` \
     `# in ./logwarn_openqa_ignore and NOT here` \
     | ./logwarn_openqa_ignore

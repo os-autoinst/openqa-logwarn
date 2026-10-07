@@ -2,8 +2,9 @@
 file="${file:-"${1:-"/var/log/openqa"}"}"
 options="${options:-""}"
 logwarn="${logwarn:-$(command -v logwarn)}"
-$logwarn ${options} -m '\[.*:?(debug|info|warn|error)\]' -p ${file} \
-    '\[.*:?(warn|error)\]' '!\[.*:?(debug|info)\]' \ $@ \
+$logwarn ${options} "${file}" \
+    | rg --engine pcre2 -e '\[.*:?(warn|error)\]' \
+    | rg --engine pcre2 -e '\[.*:?(debug|info)\]' -v \
     `# Maintain the list of ignored log messages` \
     `# in ./logwarn_openqa_ignore and NOT here` \
     | ./logwarn_openqa_ignore

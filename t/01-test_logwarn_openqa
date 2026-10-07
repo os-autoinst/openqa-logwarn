@@ -8,7 +8,7 @@ if ! logwarn -v &>/dev/null; then
 fi
 
 in_log=$(cat t/data/openqa-webui.log)
-out=$(env options="-f /dev/null -z" file=t/data/openqa-webui.log sh -ex ./logwarn_openqa) || true
+out=$(env options="-f /dev/null" file=t/data/openqa-webui.log sh -ex ./logwarn_openqa) || true
 
 source t/openqa_shared
 
