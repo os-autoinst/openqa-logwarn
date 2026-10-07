@@ -6,5 +6,5 @@ journalctl --cursor-file=/var/lib/logwarn/openqa-gru -u openqa-gru \
         -e 'WARNING:' \
     | grep --invert-match --perl-regexp \
         `# https://progress.opensuse.org/issues/207957` \
-        -e '(LLM API.*timed out|openqa-llm-investigate failed)' \
+        -e '(LLM API|openqa-llm-investigate failed)' \
     || true
