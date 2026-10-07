@@ -89,4 +89,6 @@ cat /dev/stdin | rg --engine pcre2 --invert-match \
     -e '\[error\].*invalid input syntax for type bigint' \
     `# https://progress.opensuse.org/issues/208083` \
     -e '\[error\].*Global symbol "\$job_groups_and_parents" requires explicit package name.*navbar\.html\.ep' \
+    `# https://progress.opensuse.org/issues/208086` \
+    -e '\[error\].*Can.t call method "id" on an undefined value.*Controller/Test\.pm' \
     || true
