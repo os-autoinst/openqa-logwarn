@@ -1,52 +1,3 @@
-#!/bin/bash -e
-set -o pipefail
-
-in_log=$(cat in.log)
-out=$(env options="-f /dev/null -z" file=in.log sh -ex ./logwarn_openqa) || true
-declare -i testnum=0
-declare -i rc=0
-pass() {
-    testnum+=1
-    echo "ok $testnum - $1"
-}
-fail() {
-    testnum+=1
-    echo "not ok $testnum - $1"
-    rc=1
-}
-done-testing() {
-    echo "1..$testnum"
-}
-is-ignored() {
-    local string=$1 label=$2
-    if ! echo "$in_log" | grep -q "$string"; then
-        fail "[reverse-check] >>$string<< - make sure the string you want to ignore is in in.log"
-        echo "# ====================================================================="
-        echo "# Explanation: is-ignored() is ensuring that logwarn will filter the"
-        echo "# given string."
-        echo "# For that it first runs a test to check if a matching line is actually"
-        echo "# contained in 'in.log'"
-        echo "# ====================================================================="
-        return
-    fi
-    label=${label:-"String >>$string<< is ignored"}
-    if echo "$out" | grep -q "$string"; then
-        fail "$label"
-    else
-        pass "$label"
-    fi
-}
-is-included() {
-    local string=$1 label=$2
-    label=${label:-"String >>$string<< is included"}
-    if echo "$out" | grep -q "$string"; then
-        pass "$label"
-    else
-        fail "$label"
-    fi
-}
-
-
 echo "test error messages are included"
 is-included ':error.*File iso/bar.iso is not a registered asset'
 is-included ':error.*MISSING S:scheduled R:none'
@@ -107,7 +58,3 @@ is-ignored '\[error\] Worker 17519 has no heartbeat'
 is-ignored '\[error\].*the database system is shutting down'
 is-ignored '\[error\].*invalid input syntax for type bigint'
 is-ignored '^CONTEXT:'
-done-testing
-
-# explicitly exit with $rc unless we are run by prove
-[[ -n $HARNESS_ACTIVE ]] || exit $rc

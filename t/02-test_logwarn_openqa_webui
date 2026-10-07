@@ -1,0 +1,11 @@
+#!/bin/bash -e
+
+source t/common
+
+in_log=$(cat t/data/openqa-webui.log)
+journalctl() { cat t/data/openqa-webui.log; } # mock journalctl to return test data
+out=$(source logwarn_openqa_webui) || true
+
+source t/openqa_shared
+
+done-testing

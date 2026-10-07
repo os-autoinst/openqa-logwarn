@@ -1,0 +1,53 @@
+#!/bin/bash -e
+
+source t/common
+
+# simulate args
+set -- t/data/generate_test_logs.sh FOO
+
+mail_file="$(mktemp)"
+
+pushd() { echo -n; } # mock pushd call
+git() { echo -n; } # mock git calls
+hostname() { echo myhost.suse.de; } # mock hostname call
+# mock mail command to check call
+mail() {
+  echo "mail $*" > "$mail_file"
+  cat /dev/stdin >> "$mail_file"
+}
+
+HOST=myhost
+COLUMN_LIMIT=20
+LINE_LIMIT=3
+source pretty_logwarn
+
+echo "test that mail was sent correctly"
+if [[ -f "$mail_file" ]]; then
+  pass "Mail was sent"
+else
+  fail "Mail was not sent"
+fi
+mail_call="$(head -1 "$mail_file")"
+if echo "$mail_call" | grep -qP 'mail -r openqa-monitor@myhost.suse.de -s OpenQA logwarn report for t/data/generate_test_logs.sh on .* nsinger@suse.de'; then
+  pass "Correct mail call"
+else
+  fail "Incorrect mail call: $mail_call"
+fi
+mail_contant="$(tail -n +2 "$mail_file")"
+if echo "$mail_contant" | grep -qP 'Found 30 lines via t/data/generate_test_logs.sh'; then
+  pass "Correct number of lines reported"
+else
+  fail "Wrong number of lines reported"
+fi
+if echo "$mail_contant" | grep 'FOO:' | tail -1 | grep -q 'FOO: line 03 with so'; then
+  pass "Line cutting / limiting performed correctly"
+else
+  fail "Line cutting / limiting done wrong"
+fi
+if echo "$mail_contant" | grep -q 'Logs reported by script call: "./t/data/generate_test_logs.sh FOO"'; then
+  pass "Signature contains correct script call"
+else
+  fail "Incomplete signature"
+fi
+
+done-testing

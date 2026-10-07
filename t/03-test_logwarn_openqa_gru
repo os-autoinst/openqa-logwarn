@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+source t/common
+
+in_log=$(cat t/data/openqa-gru.log)
+journalctl() { cat t/data/openqa-gru.log; } # mock journalctl to return test data
+out=$(source logwarn_gru) || true
+
+echo "test error messages are included"
+is-included 'ERROR: This line is always shown'
+
+echo "Known and blacklisted log lines are not included"
+is-ignored 'WARNING: openqa-llm-investigate failed'
+is-ignored 'LLM API.*timed out'
+
+done-testing
