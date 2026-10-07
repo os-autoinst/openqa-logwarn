@@ -87,4 +87,6 @@ cat /dev/stdin | rg --engine pcre2 --invert-match \
     -e '\[error\].*FATAL:.*the database system is shutting down.*' \
     `# https://progress.opensuse.org/issues/193897` \
     -e '\[error\].*invalid input syntax for type bigint' \
+    `# https://progress.opensuse.org/issues/208083` \
+    -e '\[error\].*Global symbol "\$job_groups_and_parents" requires explicit package name.*navbar\.html\.ep' \
     || true
