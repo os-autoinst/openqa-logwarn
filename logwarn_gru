@@ -8,4 +8,6 @@ journalctl --cursor-file=/var/lib/logwarn/openqa-gru -u openqa-gru \
     -e 'LLM API' -e 'openqa-llm-investigate failed' \
     `# https://progress.opensuse.org/issues/208155` \
     -e 'Common failures found across clone chain: 500-networking.bats:Podman unshare --rootless-netns with Pasta' \
+    `# https://progress.opensuse.org/issues/208206` \
+    -e 'Failed to fetch text.*autoinst-log.txt.*404' \
     || true
