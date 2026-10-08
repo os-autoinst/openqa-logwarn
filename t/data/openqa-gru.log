@@ -1,3 +1,4 @@
 Oct 05 13:26:25 ariel openqa-gru[1547546]: ERROR: LLM API http://o3-llm/v1/chat/completions (gemma-4-26B-A4B-it) failed: timed out
 Oct 05 13:26:25 ariel openqa-gru[1547424]: WARNING: openqa-llm-investigate failed, falling back to standard investigation
 Okt 06 12:14:50 openqa openqa-gru[1405597]: ERROR: This line is always shown
+Oct 07 20:14:56 ariel openqa-gru[3132475]: ERROR: Common failures found across clone chain: 500-networking.bats:Podman unshare --rootless-netns with Pasta

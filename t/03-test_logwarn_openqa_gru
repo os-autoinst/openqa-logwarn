@@ -12,5 +12,6 @@ is-included 'ERROR: This line is always shown'
 echo "Known and blacklisted log lines are not included"
 is-ignored 'WARNING: openqa-llm-investigate failed'
 is-ignored 'LLM API.*timed out'
+is-ignored 'Common failures found across clone chain: 500-networking.bats:Podman unshare --rootless-netns with Pasta'
 
 done-testing
