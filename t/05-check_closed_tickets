@@ -1,0 +1,42 @@
+#!/bin/bash -e
+
+source t/common
+
+is_ticket_closed() {
+    url="$1"
+    curl -s "${url}.json" | grep -qP '"is_closed"\s*:\s*true'
+    return $?
+}
+
+check_script_urls() {
+    fln="$1"
+    echo "check for silences with closed tickets in $fln"
+    mapfile -d '' matches < <(perl -0777 -ne '
+        while (/ (https?.*?(?=`#|\|\| true))/sg) {
+            my $line = 1 + (substr($_, 0, $-[1]) =~ tr/\n//);
+            print "$line:$1\0";
+        }
+    ' "$fln")
+
+    for item in "${matches[@]}"; do
+        lineno="${item%%:*}"
+        match="${item#*:}"
+
+        # Extract the URL from the start of the match
+        [[ "$match" =~ ^(https?://[^[:space:]\`]+) ]]
+        url="${BASH_REMATCH[1]}"
+
+        if is_ticket_closed "$url"; then
+            fail "$url is closed but still referenced in silence: ${fln}:${lineno}"
+            echo "    $match"
+        else
+            pass "$url is still open"
+        fi
+    done
+}
+
+check_script_urls logwarn_gru
+check_script_urls logwarn_openqa_ignore
+
+done-testing
+
