@@ -10,4 +10,6 @@ journalctl --cursor-file=/var/lib/logwarn/openqa-gru -u openqa-gru \
     -e 'Common failures found across clone chain: 500-networking.bats:Podman unshare --rootless-netns with Pasta' \
     `# https://progress.opensuse.org/issues/208206` \
     -e 'Failed to fetch text.*autoinst-log.txt.*404' \
+    `# https://progress.opensuse.org/issues/208299` \
+    -e 'WARNING.*ReadTimeout.*Retrying' \
     || true
