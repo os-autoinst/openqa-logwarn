@@ -4,7 +4,7 @@ source t/common
 
 in_log=$(cat t/data/openqa-gru.log)
 journalctl() { cat t/data/openqa-gru.log; } # mock journalctl to return test data
-out=$(source logwarn_gru) || true
+out=$(source logwarn_gru)
 
 echo "test error messages are included"
 is-included 'ERROR: This line is always shown'
