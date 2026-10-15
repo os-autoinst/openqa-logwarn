@@ -35,4 +35,6 @@ cat /dev/stdin | rg --engine pcre2 --invert-match \
     -e '\[error\].*invalid input syntax for type bigint' \
     `# https://progress.opensuse.org/issues/208362` \
     -e 'Worker \d+ has no heartbeat \(\d+ seconds\), restarting \(see FAQ for more\)$' \
+    `# https://progress.opensuse.org/issues/208557` \
+    -e 'Stopping worker \d+ immediately$' \
     || true
