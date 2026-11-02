@@ -7,5 +7,5 @@ journalctl --cursor-file=/var/lib/logwarn/openqa-gru -u openqa-gru \
     `# https://progress.opensuse.org/issues/207957` \
     -e 'LLM API' -e 'openqa-llm-investigate failed' \
     `# https://progress.opensuse.org/issues/208155` \
-    -e 'Common failures found across clone chain: 500-networking.bats:Podman unshare --rootless-netns with Pasta' \
+    -e 'Common failures found across clone chain: \d+-(run|networking).bats:[Pp]odman' \
     || true
