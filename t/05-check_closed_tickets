@@ -12,7 +12,7 @@ check_script_urls() {
     fln="$1"
     echo "check for silences with closed tickets in $fln"
     mapfile -d '' matches < <(perl -0777 -ne '
-        while (/ (https?.*?(?=`#|\|\| true))/sg) {
+        while (/^[ \t]*(?!#)[^\n]* (https?.*?(?=(?:\n[ \t]*`#|\|\| true)))/smg) {
             my $line = 1 + (substr($_, 0, $-[1]) =~ tr/\n//);
             print "$line:$1\0";
         }
