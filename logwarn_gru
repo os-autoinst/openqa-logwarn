@@ -1,7 +1,12 @@
 #!/bin/bash
 
+# Log silences can be added after the "The following lines contan regexes…" line.
+# They should look like this:
+#   `# https://progress.opensuse.org/issues/208155` \
+#   -e 'Common failures found across clone chain: 500-networking.bats:Podman unshare --rootless-netns with Pasta' \
+
 journalctl --cursor-file=/var/lib/logwarn/openqa-gru -u openqa-gru \
     | rg -e 'ERROR:' -e 'WARNING:' \
-    | rg --engine pcre2 --invert-match \
-    `# The following lines contain grep calls to ignore known issues` \
+    | rg --engine pcre2 --invert-match -e "^$" \
+    `# The following lines contain regexes of log lines to ignore known issues` \
     || true
