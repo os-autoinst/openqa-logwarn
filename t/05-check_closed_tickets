@@ -37,6 +37,7 @@ check_script_urls() {
 
 check_script_urls logwarn_gru
 check_script_urls logwarn_openqa_ignore
+check_script_urls logwarn_kernel
 
 done-testing
 

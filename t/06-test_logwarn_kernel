@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+source t/common
+
+in_log=$(cat t/data/kernel.log)
+journalctl() { cat t/data/kernel.log; } # mock journalctl to return test data
+out=$(source logwarn_kernel)
+
+echo "test OOM kill lines are included"
+is-included 'oom-kill'
+is-included 'total-vm'
+is-included 'score 900 or sacrifice child'
+
+echo "unrelated kernel lines are not included"
+is-ignored 'audit: type=1130'
+
+done-testing
