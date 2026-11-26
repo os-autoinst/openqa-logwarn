@@ -50,6 +50,10 @@ Feel free to add issues in github or send pull requests.
 
 * Make sure to add test reference data for new scenarios. TDD is advised :-)
 
+* Name a new `logwarn_*` script after the log source it reads (`logwarn_kernel` for
+  `journalctl -k`, `logwarn_openqa_webui` for the `openqa-webui` unit), not after the
+  pattern it filters, so the filter list can grow.
+
 * For git commit messages use the rules stated on
   [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/) as
   a reference
